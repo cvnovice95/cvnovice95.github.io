@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<!--[if lte IE 9]><meta http-equiv="refresh" content="0;url=/warn.html"><![endif]-->
+
+<title>Python-CS套接字模板</title>
+<meta name="author" content="fengjinyuan">
+
+<meta name="keywords" content="python 网络编程  套接字">
+
+<meta name="description " content="python网络编程，套接字模板">
+
+<link rel="icon" href="/images/favicon.jpg">
+
+<link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  </head>
+  <body>
+    <aside id="sidebar">
+  <nav id="tags">
+    <a href="http://fengjinyuan.net" id="avatar" style="background-image:url(/images/favicon.jpg)"></a>
+    <ul id="tags__ul">
+      <li id="pl__all" class="tags__li tags-btn active">所有文章</li>
+      
+      <li id="技术" class="tags__li tags-btn">技术</li>
+      
+      <li id="杂文" class="tags__li tags-btn">杂文</li>
+      
+      <li id="资源" class="tags__li tags-btn">资源</li>
+      
+    </ul>
+    <div id="tags__bottom">
+      <a href="https://github.com/fengjinyuan" rel="nofollow" id="icon-github" target="_blank" class="tags-btn fontello"></a>
+      <a href="http://shang.qq.com/wpa/qunwpa?idkey=5b9a44cd9fa750e0c4bf32cdd3fbb1038b816cd241198c9be308d1487ae1e5df" rel="nofollow" id="icon-qq" target="_blank" class="tags-btn fontello"></a>
+    </div>
+  </nav> <!-- end #tags -->
+  <div id="posts-list">
+    <form action="#" id="search-form" target="_blank">
+      <a href="/" id="mobile-avatar" style="background-image:url(/images/favicon.jpg)"></a>
+      <input id="search-input" type="text" placeholder="Search" disabled="disabled" />
+    </form>
+    <nav id="pl__container">
+      
+            
+                <a id="pla" class="技术 pl__all" href="/2016/02/20/Centos-vpn搭建/" title="Centos-vpn搭建">
+                  <span class="pl__circle"></span><span class="pl__title">Centos-vpn搭建</span><span class="pl__date">2016-02-20</span>
+                </a>
+            
+                <a id="pla" class="技术 pl__all" href="/2016/03/03/通用异步接受器UART/" title="通用异步接受器UART">
+                  <span class="pl__circle"></span><span class="pl__title">通用异步接受器UART</span><span class="pl__date">2016-03-03</span>
+                </a>
+            
+                <a id="pla" class="技术 pl__all" href="/2016/06/03/简单物联网组建/" title="简单物联网组建">
+                  <span class="pl__circle"></span><span class="pl__title">简单物联网组建</span><span class="pl__date">2016-06-03</span>
+                </a>
+            
+                <a id="pla" class="技术 pl__all" href="/2016/02/25/定时器中断例程/" title="定时器中断例程">
+                  <span class="pl__circle"></span><span class="pl__title">定时器中断例程</span><span class="pl__date">2016-02-25</span>
+                </a>
+            
+                <a id="pla" class="技术 pl__all" href="/2016/03/29/内联汇编学习/" title="内联汇编学习">
+                  <span class="pl__circle"></span><span class="pl__title">内联汇编学习</span><span class="pl__date">2016-03-29</span>
+                </a>
+            
+                <a id="pla" class="技术 pl__all" href="/2016/04/13/内存分页管理-EPOS/" title="内存分页管理-EPOS">
+                  <span class="pl__circle"></span><span class="pl__title">内存分页管理-EPOS</span><span class="pl__date">2016-04-13</span>
+                </a>
+            
+                <a id="pla" class="技术 pl__all" href="/2015/11/06/hello-world/" title="Hello World">
+                  <span class="pl__circle"></span><span class="pl__title">Hello World</span><span class="pl__date">2015-11-06</span>
+                </a>
+            
+                <a id="pla" class="技术 pl__all" href="/2016/12/02/hadoop2-7-3-集群搭建-Ubuntu/" title="hadoop2.7.3 集群搭建(Ubuntu)">
+                  <span class="pl__circle"></span><span class="pl__title">hadoop2.7.3 集群搭建(Ubuntu)</span><span class="pl__date">2016-12-02</span>
+                </a>
+            
+                <a id="pla" class="技术 pl__all" href="/2016/02/17/Python-CS套接字模板/" title="Python-CS套接字模板">
+                  <span class="pl__circle"></span><span class="pl__title">Python-CS套接字模板</span><span class="pl__date">2016-02-17</span>
+                </a>
+            
+                <a id="pla" class="技术 pl__all" href="/2016/03/06/MongoDB简记/" title="MongoDB简记">
+                  <span class="pl__circle"></span><span class="pl__title">MongoDB简记</span><span class="pl__date">2016-03-06</span>
+                </a>
+            
+                <a id="pla" class="技术 pl__all" href="/2016/04/23/MinnowBoard-MAX开发环境搭建/" title="MinnowBoard MAX开发环境搭建">
+                  <span class="pl__circle"></span><span class="pl__title">MinnowBoard MAX开发环境搭建</span><span class="pl__date">2016-04-23</span>
+                </a>
+            
+                <a id="pla" class="技术 pl__all" href="/2016/10/07/MicroZed使用记录/" title="MicroZed使用记录">
+                  <span class="pl__circle"></span><span class="pl__title">MicroZed使用记录</span><span class="pl__date">2016-10-07</span>
+                </a>
+            
+                <a id="pla" class="技术 pl__all" href="/2016/10/10/MicroZed-Linux移植/" title="MicroZed-Linux移植">
+                  <span class="pl__circle"></span><span class="pl__title">MicroZed-Linux移植</span><span class="pl__date">2016-10-10</span>
+                </a>
+            
+                <a id="pla" class="技术 pl__all" href="/2016/02/14/Markdown的使用记录/" title="Markdown的使用记录">
+                  <span class="pl__circle"></span><span class="pl__title">Markdown的使用记录</span><span class="pl__date">2016-02-14</span>
+                </a>
+            
+                <a id="pla" class="技术 pl__all" href="/2016/02/15/Linux-SVN/" title="Linux-SVN">
+                  <span class="pl__circle"></span><span class="pl__title">Linux-SVN</span><span class="pl__date">2016-02-15</span>
+                </a>
+            
+                <a id="pla" class="技术 pl__all" href="/2016/02/15/Linux-Mysql-Nginx-Php/" title="Linux+Mysql+Nginx+Php">
+                  <span class="pl__circle"></span><span class="pl__title">Linux+Mysql+Nginx+Php</span><span class="pl__date">2016-02-15</span>
+                </a>
+            
+      
+            
+                <a id="pla" class="杂文 pl__all" href="/2016/02/14/新blog，开始我的记录之旅/" title="新blog，开始我的记录之旅">
+                  <span class="pl__circle"></span><span class="pl__title">新blog，开始我的记录之旅</span><span class="pl__date">2016-02-14</span>
+                </a>
+            
+      
+            
+                <a id="pla" class="资源 pl__all" href="/2016/02/17/工具资源/" title="工具资源">
+                  <span class="pl__circle"></span><span class="pl__title">工具资源</span><span class="pl__date">2016-02-17</span>
+                </a>
+            
+      
+    </nav>
+  </div> <!-- end #posts-list -->
+</aside> <!-- end #sidebar -->
+
+    <div id="post">
+      <div id="pjax">
+        <article id="post__content">
+  <h1 id="post__title" data-identifier="2016-02-17">Python-CS套接字模板</h1>
+  <h1 id="UDP&#x7F16;&#x7A0B;&#x6A21;&#x677F;"><a href="#UDP&#x7F16;&#x7A0B;&#x6A21;&#x677F;" class="headerlink" title="UDP&#x7F16;&#x7A0B;&#x6A21;&#x677F;"></a>UDP&#x7F16;&#x7A0B;&#x6A21;&#x677F;</h1><p><img src="/2016/02/17/Python-CS&#x5957;&#x63A5;&#x5B57;&#x6A21;&#x677F;/UDP.png" alt=""></p>
+<hr>
+<h3 id="UDPClient-py"><a href="#UDPClient-py" class="headerlink" title="UDPClient.py"></a>UDPClient.py</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line">serverName=<span class="string">&apos;localhost&apos;</span>  <span class="comment">#IP&#x6216;&#x8005;&#x4E3B;&#x673A;&#x540D;</span></span><br><span class="line">serverPort=<span class="number">8888</span>         <span class="comment">#&#x7AEF;&#x53E3;&#x53F7;</span></span><br><span class="line">clientSocket=socket(AF_INET,SOCK_DGRAM) <span class="comment">#AF_INET&#x4F7F;&#x7528;IPv4&#xFF0C;SOCK_DGRAM&#x4F7F;&#x7528;UDP</span></span><br><span class="line">message=input(<span class="string">&quot;Input lowercase sentence:&quot;</span>)</span><br><span class="line">message=bytes(message,encoding=<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line">clientSocket.sendto(message,(serverName,serverPort))</span><br><span class="line">modifiedMessage,serverAddress=clientSocket.recvfrom(<span class="number">2048</span>)</span><br><span class="line">modifiedMessage=str(modifiedMessage,encoding=<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line">print(modifiedMessage)</span><br><span class="line">clientSocket.close()</span><br></pre></td></tr></table></figure>
+<h3 id="UDPServer-py"><a href="#UDPServer-py" class="headerlink" title="UDPServer.py"></a>UDPServer.py</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line">serverPort=<span class="number">8888</span></span><br><span class="line">serverSocket=socket(AF_INET,SOCK_DGRAM)</span><br><span class="line">serverSocket.bind((<span class="string">&apos;&apos;</span>,serverPort))</span><br><span class="line">print(<span class="string">&quot;The server is ready to receive&quot;</span>)</span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">	message,clientAddress=serverSocket.recvfrom(<span class="number">2048</span>)</span><br><span class="line">	modifiedMessage=message.upper()</span><br><span class="line">	serverSocket.sendto(modifiedMessage,clientAddress)</span><br></pre></td></tr></table></figure>
+<h1 id="TCP&#x7F16;&#x7A0B;&#x6A21;&#x677F;"><a href="#TCP&#x7F16;&#x7A0B;&#x6A21;&#x677F;" class="headerlink" title="TCP&#x7F16;&#x7A0B;&#x6A21;&#x677F;"></a>TCP&#x7F16;&#x7A0B;&#x6A21;&#x677F;</h1><p><img src="/2016/02/17/Python-CS&#x5957;&#x63A5;&#x5B57;&#x6A21;&#x677F;/TCP.png" alt=""></p>
+<hr>
+<h3 id="TCPClient-py"><a href="#TCPClient-py" class="headerlink" title="TCPClient.py"></a>TCPClient.py</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line">serverName=<span class="string">&apos;localhost&apos;</span></span><br><span class="line">serverPort=<span class="number">8888</span></span><br><span class="line">clientSocket=socket(AF_INET,SOCK_STREAM)  <span class="comment">#SOCK_STREAM &#x4F7F;&#x7528;TCP</span></span><br><span class="line">clientSocket.connect((serverName,serverPort)) <span class="comment">#&#x8FDB;&#x884C;&#x63E1;&#x624B;&#x8FDE;&#x63A5;</span></span><br><span class="line">message=input(<span class="string">&quot;Input lowercase sentence:&quot;</span>)</span><br><span class="line">message=bytes(message,encoding=<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line">clientSocket.send(message)</span><br><span class="line">modifiedMessage=clientSocket.recv(<span class="number">2048</span>)</span><br><span class="line">modifiedMessage=str(modifiedMessage,encoding=<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line">print(modifiedMessage)</span><br><span class="line">clientSocket.close()</span><br></pre></td></tr></table></figure>
+<h3 id="TCPServer-py"><a href="#TCPServer-py" class="headerlink" title="TCPServer.py"></a>TCPServer.py</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line">serverPort=<span class="number">8888</span></span><br><span class="line">serverSocket=socket(AF_INET,SOCK_STREAM)</span><br><span class="line">serverSocket.bind((<span class="string">&apos;&apos;</span>,serverPort))</span><br><span class="line">serverSocket.listen(<span class="number">1</span>)   <span class="comment">#&#x76D1;&#x542C;&#x8BF7;&#x6C42;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x53C2;&#x6570;&#x4E3A;&#x8BF7;&#x6C42;&#x8FDE;&#x63A5;&#x7684;&#x6700;&#x5927;&#x6570;</span></span><br><span class="line">print(<span class="string">&quot;The server is ready to receive&quot;</span>)</span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">	connectionSocket,addr=serverSocket.accept() <span class="comment">#&#x63E1;&#x624B;&#x8FDE;&#x63A5;&#x6210;&#x529F;&#x521B;&#x5EFA;&#x8FDE;&#x63A5;&#x5957;&#x63A5;&#x5B57;&#x7528;&#x4E8E;&#x6570;&#x636E;&#x4F20;&#x8F93;</span></span><br><span class="line">	message=connectionSocket.recv(<span class="number">2048</span>)</span><br><span class="line">	modifiedMessage=message.upper()</span><br><span class="line">	connectionSocket.send(modifiedMessage)</span><br><span class="line">	connectionSocket.close()</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="&#x533A;&#x522B;"><a href="#&#x533A;&#x522B;" class="headerlink" title="&#x533A;&#x522B;"></a>&#x533A;&#x522B;</h3><p>UDP&#x5728;&#x6BCF;&#x6B21;&#x4F20;&#x8F93;&#x5C06;&#x5206;&#x7EC4;&#x653E;&#x8FDB;&#x5957;&#x63A5;&#x5B57;&#x524D;&#x4E00;&#x5B9A;&#x8981;&#x9644;&#x4E0A;&#x76EE;&#x7684;&#x5730;&#x5730;&#x5740;(IP+port)<br>TCP&#x901A;&#x8FC7;&#x63E1;&#x624B;&#x5957;&#x63A5;&#x5B57;&#x5EFA;&#x7ACB;&#x670D;&#x52A1;&#x7AEF;&#x4E0E;&#x5BA2;&#x6237;&#x7AEF;&#x7684;IP&#x548C;&#x7AEF;&#x53E3;&#x5173;&#x8054;&#xFF0C;&#x521B;&#x5EFA;&#x65B0;&#x5957;&#x63A5;&#x5B57;&#x7528;&#x4E8E;&#x6570;&#x636E;&#x4F20;&#x8F93;&#x3002;</p>
+<hr>
+<h1 id="&#x5907;&#x6CE8;"><a href="#&#x5907;&#x6CE8;" class="headerlink" title="&#x5907;&#x6CE8;"></a>&#x5907;&#x6CE8;</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Python <span class="number">3.5</span></span><br><span class="line"><span class="comment">#str to byte</span></span><br><span class="line">bytes(content,encoding=<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line">str.encode(content)</span><br><span class="line"><span class="comment">#byte to str</span></span><br><span class="line">str(content,encoding=<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line">bytes.decode(content)</span><br><span class="line"><span class="comment">#Python 3 send,sendto &#x6D88;&#x606F;&#x4E3A;byte&#x7C7B;&#x578B;</span></span><br></pre></td></tr></table></figure>
+
+</article>
+<button id="js-fullscreen"><span id="icon-arrow" class="fontello"></span></button>
+<script src="/js/js-lib.js" type="text/javascript"></script>
+
+  <link rel="stylesheet" type="text/css" href="/css/codeStyle/xcode.css" />
+  <script src="/js/highlight.pack.js" type="text/javascript"></script>
+
+
+  <div id="post__action">
+      <a id="icon-heart" class="fontello" href="javascript:donate();"></a>
+  </div>
+  <script src="/layer/layer.js" type="text/javascript"></script>
+  <script src="/layer/extend/layer.ext.js" type="text/javascript"></script>
+
+
+<!-- 多说评论框 start -->
+<div class="ds-thread" data-thread-key="undefined" data-title="Python-CS套接字模板" data-url="http://fengjinyuan.net/2016/02/17/Python-CS套接字模板/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:'fengjinyuan'};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+
+        <p id="copyright">由<a href="http://hexo.io" target="_blank">Hexo</a>创建&nbsp;&nbsp;|&nbsp;&nbsp;主题<a href="https://github.com/tangkunyin/hexo-theme-ttstyle" target="_blank">TTStyle</a>&nbsp;&nbsp;|&nbsp;&nbsp;感谢<a href="undefined" target="_blank">GitHub</a>提供强力驱动</p><p><center><a href="http://www.miitbeian.gov.cn">新ICP备16000392号-1</a></center></p>
+<!-- 百度统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?72d7b9667fbc722f1558948d457fbe6f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    bp.src = '//push.zhanzhang.baidu.com/push.js';
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+      </div>
+      <div id="post__toc-trigger">
+        <div id="post__toc">
+          <span id="post__toc-title">目录</span>
+          <ul id="post__toc-ul"></ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
