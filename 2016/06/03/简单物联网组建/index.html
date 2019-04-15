@@ -1,147 +1,440 @@
 <!DOCTYPE html>
 <html>
-  <head><meta name="generator" content="Hexo 3.8.0">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<!--[if lte IE 9]><meta http-equiv="refresh" content="0;url=/warn.html"><![endif]-->
-
-<title>简单物联网组建</title>
-<meta name="author" content="fengjinyuan">
-
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000">
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top">
+  
+  
+  <title>简单物联网组建 | CVNovice</title>
+  <meta name="description" content="基于Arduino的物联网的组建">
 <meta name="keywords" content="Arduino+W5100">
+<meta property="og:type" content="article">
+<meta property="og:title" content="简单物联网组建">
+<meta property="og:url" content="http://fengjinyuan.github.io/2016/06/03/简单物联网组建/index.html">
+<meta property="og:site_name" content="嵌入式小白|blog">
+<meta property="og:description" content="基于Arduino的物联网的组建">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/06/03/简单物联网组建/1.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/06/03/简单物联网组建/2.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/06/03/简单物联网组建/3.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/06/03/简单物联网组建/4.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/06/03/简单物联网组建/IOT.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/06/03/简单物联网组建/5.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/06/03/简单物联网组建/1.jpg">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/06/03/简单物联网组建/6.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/06/03/简单物联网组建/2.jpg">
+<meta property="og:updated_time" content="2019-04-09T08:21:24.286Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="简单物联网组建">
+<meta name="twitter:description" content="基于Arduino的物联网的组建">
+<meta name="twitter:image" content="http://fengjinyuan.github.io/2016/06/03/简单物联网组建/1.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://fengjinyuan.github.io/2016/06/03/简单物联网组建/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="嵌入式小白|blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+  
+  
+</head>
 
-<meta name="description " content="基于Arduino的物联网的组建">
 
-<link rel="icon" href="/images/favicon.jpg">
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/fengjinyuan" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">CVNovice</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Master of Software Engineering</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Chongqing, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
 
-<link rel="stylesheet" href="/css/style.css">
-
-  </head>
-  <body>
-    <aside id="sidebar">
-  <nav id="tags">
-    <a href="http://fengjinyuan.github.io" id="avatar" style="background-image:url(/images/favicon.jpg)"></a>
-    <ul id="tags__ul">
-      <li id="pl__all" class="tags__li tags-btn active">所有文章</li>
-      
-      <li id="技术" class="tags__li tags-btn">技术</li>
-      
-      <li id="杂文" class="tags__li tags-btn">杂文</li>
-      
-      <li id="Research" class="tags__li tags-btn">Research</li>
-      
-      <li id="资源" class="tags__li tags-btn">资源</li>
-      
-    </ul>
-    <div id="tags__bottom">
-      <a href="https://github.com/fengjinyuan" rel="nofollow" id="icon-github" target="_blank" class="tags-btn fontello"></a>
-      <a href="http://shang.qq.com/wpa/qunwpa?idkey=5b9a44cd9fa750e0c4bf32cdd3fbb1038b816cd241198c9be308d1487ae1e5df" rel="nofollow" id="icon-qq" target="_blank" class="tags-btn fontello"></a>
-    </div>
-  </nav> <!-- end #tags -->
-  <div id="posts-list">
-    <form action="#" id="search-form" target="_blank">
-      <a href="/" id="mobile-avatar" style="background-image:url(/images/favicon.jpg)"></a>
-      <input id="search-input" type="text" placeholder="Search" disabled="disabled">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search">
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
     </form>
-    <nav id="pl__container">
-      
-            
-                <a id="pla" class="技术 pl__all" href="/2016/02/20/Centos-vpn搭建/" title="Centos-vpn搭建">
-                  <span class="pl__circle"></span><span class="pl__title">Centos-vpn搭建</span><span class="pl__date">2016-02-20</span>
-                </a>
-            
-                <a id="pla" class="技术 pl__all" href="/2016/02/15/Linux-SVN/" title="Linux-SVN">
-                  <span class="pl__circle"></span><span class="pl__title">Linux-SVN</span><span class="pl__date">2016-02-15</span>
-                </a>
-            
-                <a id="pla" class="技术 pl__all" href="/2016/02/15/Linux-Mysql-Nginx-Php/" title="Linux+Mysql+Nginx+Php">
-                  <span class="pl__circle"></span><span class="pl__title">Linux+Mysql+Nginx+Php</span><span class="pl__date">2016-02-15</span>
-                </a>
-            
-                <a id="pla" class="技术 pl__all" href="/2016/02/14/Markdown的使用记录/" title="Markdown的使用记录">
-                  <span class="pl__circle"></span><span class="pl__title">Markdown的使用记录</span><span class="pl__date">2016-02-14</span>
-                </a>
-            
-                <a id="pla" class="技术 pl__all" href="/2016/10/10/MicroZed-Linux移植/" title="MicroZed-Linux移植">
-                  <span class="pl__circle"></span><span class="pl__title">MicroZed-Linux移植</span><span class="pl__date">2016-10-10</span>
-                </a>
-            
-                <a id="pla" class="技术 pl__all" href="/2016/02/17/Python-CS套接字模板/" title="Python-CS套接字模板">
-                  <span class="pl__circle"></span><span class="pl__title">Python-CS套接字模板</span><span class="pl__date">2016-02-17</span>
-                </a>
-            
-                <a id="pla" class="技术 pl__all" href="/2016/10/07/MicroZed使用记录/" title="MicroZed使用记录">
-                  <span class="pl__circle"></span><span class="pl__title">MicroZed使用记录</span><span class="pl__date">2016-10-07</span>
-                </a>
-            
-                <a id="pla" class="技术 pl__all" href="/2016/04/23/MinnowBoard-MAX开发环境搭建/" title="MinnowBoard MAX开发环境搭建">
-                  <span class="pl__circle"></span><span class="pl__title">MinnowBoard MAX开发环境搭建</span><span class="pl__date">2016-04-23</span>
-                </a>
-            
-                <a id="pla" class="技术 pl__all" href="/2016/03/06/MongoDB简记/" title="MongoDB简记">
-                  <span class="pl__circle"></span><span class="pl__title">MongoDB简记</span><span class="pl__date">2016-03-06</span>
-                </a>
-            
-                <a id="pla" class="技术 pl__all" href="/2016/12/02/hadoop2-7-3-集群搭建-Ubuntu/" title="hadoop2.7.3 集群搭建(Ubuntu)">
-                  <span class="pl__circle"></span><span class="pl__title">hadoop2.7.3 集群搭建(Ubuntu)</span><span class="pl__date">2016-12-02</span>
-                </a>
-            
-                <a id="pla" class="技术 pl__all" href="/2015/11/06/Quick-Start-Hexo/" title="Quick Start Hexo">
-                  <span class="pl__circle"></span><span class="pl__title">Quick Start Hexo</span><span class="pl__date">2015-11-06</span>
-                </a>
-            
-                <a id="pla" class="技术 pl__all" href="/2016/04/13/内存分页管理-EPOS/" title="内存分页管理-EPOS">
-                  <span class="pl__circle"></span><span class="pl__title">内存分页管理-EPOS</span><span class="pl__date">2016-04-13</span>
-                </a>
-            
-                <a id="pla" class="技术 pl__all" href="/2016/03/29/内联汇编学习/" title="内联汇编学习">
-                  <span class="pl__circle"></span><span class="pl__title">内联汇编学习</span><span class="pl__date">2016-03-29</span>
-                </a>
-            
-                <a id="pla" class="技术 pl__all" href="/2016/06/03/简单物联网组建/" title="简单物联网组建">
-                  <span class="pl__circle"></span><span class="pl__title">简单物联网组建</span><span class="pl__date">2016-06-03</span>
-                </a>
-            
-                <a id="pla" class="技术 pl__all" href="/2016/02/25/定时器中断例程/" title="定时器中断例程">
-                  <span class="pl__circle"></span><span class="pl__title">定时器中断例程</span><span class="pl__date">2016-02-25</span>
-                </a>
-            
-                <a id="pla" class="技术 pl__all" href="/2016/03/03/通用异步接受器UART/" title="通用异步接受器UART">
-                  <span class="pl__circle"></span><span class="pl__title">通用异步接受器UART</span><span class="pl__date">2016-03-03</span>
-                </a>
-            
-      
-            
-                <a id="pla" class="杂文 pl__all" href="/2016/02/14/Forgetter/" title="Forgetter">
-                  <span class="pl__circle"></span><span class="pl__title">Forgetter</span><span class="pl__date">2016-02-14</span>
-                </a>
-            
-      
-            
-                <a id="pla" class="Research pl__all" href="/2019/04/09/report-GCN-GAN-RL/" title="[report] GCN+GAN+RL">
-                  <span class="pl__circle"></span><span class="pl__title">[report] GCN+GAN+RL</span><span class="pl__date">2019-04-09</span>
-                </a>
-            
-                <a id="pla" class="Research pl__all" href="/2019/04/09/technology-Build-DL-based-on-Docker/" title="[tech] DeepLearning+Docker">
-                  <span class="pl__circle"></span><span class="pl__title">[tech] DeepLearning+Docker</span><span class="pl__date">2019-04-09</span>
-                </a>
-            
-      
-            
-                <a id="pla" class="资源 pl__all" href="/2016/02/17/工具资源/" title="工具资源">
-                  <span class="pl__circle"></span><span class="pl__title">工具资源</span><span class="pl__date">2016-02-17</span>
-                </a>
-            
-      
-    </nav>
-  </div> <!-- end #posts-list -->
-</aside> <!-- end #sidebar -->
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech>
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
 
-    <div id="post">
-      <div id="pjax">
-        <article id="post__content">
-  <h1 id="post__title" data-identifier="2016-06-03">简单物联网组建</h1>
-  <h1 id="&#x7B80;&#x5355;&#x7684;&#x7269;&#x8054;&#x7F51;&#x7684;&#x7EC4;&#x5EFA;"><a href="#&#x7B80;&#x5355;&#x7684;&#x7269;&#x8054;&#x7F51;&#x7684;&#x7EC4;&#x5EFA;" class="headerlink" title="&#x7B80;&#x5355;&#x7684;&#x7269;&#x8054;&#x7F51;&#x7684;&#x7EC4;&#x5EFA;"></a>&#x7B80;&#x5355;&#x7684;&#x7269;&#x8054;&#x7F51;&#x7684;&#x7EC4;&#x5EFA;</h1><h1 id="&#x76EE;&#x6807;&#x63CF;&#x8FF0;"><a href="#&#x76EE;&#x6807;&#x63CF;&#x8FF0;" class="headerlink" title="&#x76EE;&#x6807;&#x63CF;&#x8FF0;"></a>&#x76EE;&#x6807;&#x63CF;&#x8FF0;</h1><p><font color="#FF0000" size="6" face="&#x9ED1;&#x4F53;"><br>&#x5BA2;&#x6237;&#x7AEF;(PC,&#x624B;&#x673A;)&#x901A;&#x8FC7;&#x8BBF;&#x95EE;&#x6307;&#x5B9A;&#x7F51;&#x9875;&#x8FDC;&#x7A0B;&#x63A7;&#x5236;&#x8BBE;&#x5907;&#x7684;&#x72B6;&#x6001;(&#x5F00;&#x5173;)&#x3002;<br></font></p>
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/fengjinyuan" target="_blank" title="Github" data-toggle="tooltip" data-placement="top"><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle="tooltip" data-placement="top"><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Research/">Research</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂文/">杂文</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/资源/">资源</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Research/">Research</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术/">技术</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂文/">杂文</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源/">资源</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Research/" style="font-size: 13.5px;">Research</a> <a href="/tags/技术/" style="font-size: 14px;">技术</a> <a href="/tags/杂文/" style="font-size: 13px;">杂文</a> <a href="/tags/资源/" style="font-size: 13px;">资源</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled ">
+        
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2019/04/09/technology-Build-DL-based-on-Docker/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Research/">Research</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/04/09/technology-Build-DL-based-on-Docker/" class="title">[tech] DeepLearning+Docker</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-04-09T12:35:41.000Z" itemprop="datePublished">2019-04-09</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2019/04/09/report-GCN-GAN-RL/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Research/">Research</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/04/09/report-GCN-GAN-RL/" class="title">[report] GCN+GAN+RL</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-04-09T09:15:22.000Z" itemprop="datePublished">2019-04-09</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2016/12/02/hadoop2-7-3-集群搭建-Ubuntu/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/技术/">技术</a>
+              </p>
+              <p class="item-title">
+                <a href="/2016/12/02/hadoop2-7-3-集群搭建-Ubuntu/" class="title">hadoop2.7.3 集群搭建(Ubuntu)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2016-12-02T03:24:52.000Z" itemprop="datePublished">2016-12-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2016/10/10/MicroZed-Linux移植/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/技术/">技术</a>
+              </p>
+              <p class="item-title">
+                <a href="/2016/10/10/MicroZed-Linux移植/" class="title">MicroZed-Linux移植</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2016-10-09T23:05:40.000Z" itemprop="datePublished">2016-10-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2016/10/07/MicroZed使用记录/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/技术/">技术</a>
+              </p>
+              <p class="item-title">
+                <a href="/2016/10/07/MicroZed使用记录/" class="title">MicroZed使用记录</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2016-10-07T04:00:23.000Z" itemprop="datePublished">2016-10-07</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-简单物联网组建" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      简单物联网组建
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2016/06/03/简单物联网组建/" class="article-date">
+	  <time datetime="2016-06-03T15:20:22.000Z" itemprop="datePublished">2016-06-03</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/技术/">技术</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/技术/">技术</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2016/06/03/简单物联网组建/#comments" class="article-comment-link">Comments</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 766(words)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 4(minutes)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="&#x7B80;&#x5355;&#x7684;&#x7269;&#x8054;&#x7F51;&#x7684;&#x7EC4;&#x5EFA;"><a href="#&#x7B80;&#x5355;&#x7684;&#x7269;&#x8054;&#x7F51;&#x7684;&#x7EC4;&#x5EFA;" class="headerlink" title="&#x7B80;&#x5355;&#x7684;&#x7269;&#x8054;&#x7F51;&#x7684;&#x7EC4;&#x5EFA;"></a>&#x7B80;&#x5355;&#x7684;&#x7269;&#x8054;&#x7F51;&#x7684;&#x7EC4;&#x5EFA;</h1><h1 id="&#x76EE;&#x6807;&#x63CF;&#x8FF0;"><a href="#&#x76EE;&#x6807;&#x63CF;&#x8FF0;" class="headerlink" title="&#x76EE;&#x6807;&#x63CF;&#x8FF0;"></a>&#x76EE;&#x6807;&#x63CF;&#x8FF0;</h1><p><font color="#FF0000" size="6" face="&#x9ED1;&#x4F53;"><br>&#x5BA2;&#x6237;&#x7AEF;(PC,&#x624B;&#x673A;)&#x901A;&#x8FC7;&#x8BBF;&#x95EE;&#x6307;&#x5B9A;&#x7F51;&#x9875;&#x8FDC;&#x7A0B;&#x63A7;&#x5236;&#x8BBE;&#x5907;&#x7684;&#x72B6;&#x6001;(&#x5F00;&#x5173;)&#x3002;<br></font></p>
 <h1 id="&#x6240;&#x9700;&#x8BBE;&#x5907;&#x4E0E;&#x73AF;&#x5883;"><a href="#&#x6240;&#x9700;&#x8BBE;&#x5907;&#x4E0E;&#x73AF;&#x5883;" class="headerlink" title="&#x6240;&#x9700;&#x8BBE;&#x5907;&#x4E0E;&#x73AF;&#x5883;"></a>&#x6240;&#x9700;&#x8BBE;&#x5907;&#x4E0E;&#x73AF;&#x5883;</h1><p><font color="#FF0000" size="6" face="&#x9ED1;&#x4F53;"><br>1.Arduino UNO+W5100<br>2.LED<br>3.&#x4E00;&#x6839;&#x7F51;&#x7EBF;<br>4.&#x4E2A;&#x4EBA;PC<br>5.&#x670D;&#x52A1;&#x5668;<br></font></p>
 <h1 id="&#x88AB;&#x63A7;&#x7AEF;&#x7EC4;&#x7F51;"><a href="#&#x88AB;&#x63A7;&#x7AEF;&#x7EC4;&#x7F51;" class="headerlink" title="&#x88AB;&#x63A7;&#x7AEF;&#x7EC4;&#x7F51;"></a>&#x88AB;&#x63A7;&#x7AEF;&#x7EC4;&#x7F51;</h1><p><font color="#FF0000" size="6" face="&#x9ED1;&#x4F53;"><br>1.&#x4E2A;&#x4EBA;PC&#x901A;&#x8FC7;&#x65E0;&#x7EBF;&#x8FDE;&#x63A5;,&#x53EF;&#x8BBF;&#x95EE;&#x5916;&#x7F51;&#x3002;<br>2.&#x5206;&#x4EAB;&#x65E0;&#x7EBF;&#x8FDE;&#x63A5;,&#x4F9B;&#x672C;&#x5730;&#x8FDE;&#x63A5;&#x4F7F;&#x7528;&#x3002;&#x5982;&#x56FE;<br><img src="/2016/06/03/&#x7B80;&#x5355;&#x7269;&#x8054;&#x7F51;&#x7EC4;&#x5EFA;/1.png" alt><br>3.&#x8BBE;&#x5B9A;&#x4E2A;&#x4EBA;PC&#x7684;IP,&#x5B50;&#x7F51;&#x63A9;&#x7801;,&#x9ED8;&#x8BA4;&#x7F51;&#x5173;(&#x6839;&#x636E;&#x5B9E;&#x9645;&#x60C5;&#x51B5;)&#x3002;&#x5982;&#x56FE;<br><img src="/2016/06/03/&#x7B80;&#x5355;&#x7269;&#x8054;&#x7F51;&#x7EC4;&#x5EFA;/2.png" alt><br>4.&#x5C06;W5100&#x7528;&#x7F51;&#x7EBF;&#x4E0E;&#x4E2A;&#x4EBA;PC&#x8FDE;&#x63A5;&#x3002;&#x70E7;&#x5199;&#x6D4B;&#x8BD5;&#x7A0B;&#x5E8F;Arduino,&#x8BBE;&#x5B9A;IP&#x4E3A;192.168.137.xxx(&#x81EA;&#x5DF1;&#x5B9A;)&#x3002;<br><img src="/2016/06/03/&#x7B80;&#x5355;&#x7269;&#x8054;&#x7F51;&#x7EC4;&#x5EFA;/3.png" alt><br>5.&#x6D4B;&#x8BD5;Arduino&#x4E0E;&#x4E2A;&#x4EBA;PC&#x7684;&#x7F51;&#x7EDC;&#x8FDE;&#x63A5;&#x60C5;&#x51B5;&#x3002;&#x5982;&#x56FE;<br><img src="/2016/06/03/&#x7B80;&#x5355;&#x7269;&#x8054;&#x7F51;&#x7EC4;&#x5EFA;/4.png" alt><br>&#x7EC4;&#x7F51;&#x5B8C;&#x6210;<br></font></p>
 <h1 id="&#x670D;&#x52A1;&#x5668;&#x7AEF;"><a href="#&#x670D;&#x52A1;&#x5668;&#x7AEF;" class="headerlink" title="&#x670D;&#x52A1;&#x5668;&#x7AEF;"></a>&#x670D;&#x52A1;&#x5668;&#x7AEF;</h1><p><font color="#FF0000" size="6" face="&#x9ED1;&#x4F53;"><br>1.&#x670D;&#x52A1;&#x5668;&#x73AF;&#x5883;<br>  PHP 5.3<br>  Apache HTTP&#x670D;&#x52A1;<br>  Linux Ubuntu<br>2.&#x7F16;&#x5199;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x5904;&#x7406;&#x7A0B;&#x5E8F;<br>state.txt (&#x8BB0;&#x5F55;&#x8BBE;&#x5907;&#x7684;&#x72B6;&#x6001;)<br>state.php (&#x7528;&#x4E8E;Arduino&#x8BF7;&#x6C42;&#x8BBE;&#x5907;&#x5E94;&#x5904;&#x4E8E;&#x7684;&#x72B6;&#x6001;)<br></font><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$myfile = fopen(<span class="string">&quot;state.txt&quot;</span>,<span class="string">&quot;r&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span> (<span class="string">&quot;Unable open file&quot;</span>);</span><br><span class="line">$state = fgetc($myfile);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&gt;&quot;</span>.$state;</span><br><span class="line">fclose($myfile);</span><br></pre></td></tr></table></figure></p>
@@ -151,65 +444,213 @@
 <h1 id="&#x6574;&#x4F53;&#x7ED3;&#x6784;&#x56FE;"><a href="#&#x6574;&#x4F53;&#x7ED3;&#x6784;&#x56FE;" class="headerlink" title="&#x6574;&#x4F53;&#x7ED3;&#x6784;&#x56FE;"></a>&#x6574;&#x4F53;&#x7ED3;&#x6784;&#x56FE;</h1><p><img src="/2016/06/03/&#x7B80;&#x5355;&#x7269;&#x8054;&#x7F51;&#x7EC4;&#x5EFA;/IOT.png" alt></p>
 <h1 id="&#x5BA2;&#x6237;&#x7AEF;-&#x4E0E;-&#x8BBE;&#x5907;&#x7AEF;"><a href="#&#x5BA2;&#x6237;&#x7AEF;-&#x4E0E;-&#x8BBE;&#x5907;&#x7AEF;" class="headerlink" title="&#x5BA2;&#x6237;&#x7AEF; &#x4E0E; &#x8BBE;&#x5907;&#x7AEF;"></a>&#x5BA2;&#x6237;&#x7AEF; &#x4E0E; &#x8BBE;&#x5907;&#x7AEF;</h1><p><img src="/2016/06/03/&#x7B80;&#x5355;&#x7269;&#x8054;&#x7F51;&#x7EC4;&#x5EFA;/5.png" alt><br><img src="/2016/06/03/&#x7B80;&#x5355;&#x7269;&#x8054;&#x7F51;&#x7EC4;&#x5EFA;/1.jpg" alt><br><img src="/2016/06/03/&#x7B80;&#x5355;&#x7269;&#x8054;&#x7F51;&#x7EC4;&#x5EFA;/6.png" alt><br><img src="/2016/06/03/&#x7B80;&#x5355;&#x7269;&#x8054;&#x7F51;&#x7EC4;&#x5EFA;/2.jpg" alt></p>
 
-</article>
-<button id="js-fullscreen"><span id="icon-arrow" class="fontello"></span></button>
-<script src="/js/js-lib.js" type="text/javascript"></script>
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://fengjinyuan.github.io/2016/06/03/简单物联网组建/" title="简单物联网组建" target="_blank" rel="external">http://fengjinyuan.github.io/2016/06/03/简单物联网组建/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
 
-  <link rel="stylesheet" type="text/css" href="/css/codeStyle/xcode.css">
-  <script src="/js/highlight.pack.js" type="text/javascript"></script>
 
-
-  <div id="post__action">
-      <a id="icon-heart" class="fontello" href="javascript:donate();"></a>
-  </div>
-  <script src="/layer/layer.js" type="text/javascript"></script>
-  <script src="/layer/extend/layer.ext.js" type="text/javascript"></script>
-
-
-<!-- 多说评论框 start -->
-<div class="ds-thread" data-thread-key="undefined" data-title="简单物联网组建" data-url="http://fengjinyuan.github.io/2016/06/03/简单物联网组建/"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:'fengjinyuan'};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0]
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-<!-- 多说公共JS代码 end -->
-
-        <p id="copyright">由<a href="http://hexo.io" target="_blank">Hexo</a>创建&nbsp;&nbsp;|&nbsp;&nbsp;主题<a href="https://github.com/tangkunyin/hexo-theme-ttstyle" target="_blank">TTStyle</a>&nbsp;&nbsp;|&nbsp;&nbsp;感谢<a href="undefined" target="_blank">GitHub</a>提供强力驱动</p>
-<!-- 百度统计 -->
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?72d7b9667fbc722f1558948d457fbe6f";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-<script>
-(function(){
-    var bp = document.createElement('script');
-    bp.src = '//push.zhanzhang.baidu.com/push.js';
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/fengjinyuan" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt>
+        </a>
       </div>
-      <div id="post__toc-trigger">
-        <div id="post__toc">
-          <span id="post__toc-title">目录</span>
-          <ul id="post__toc-ul"></ul>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/fengjinyuan" target="_blank"><span class="text-dark">CVNovice</span><small class="ml-1x">Master of Software Engineering</small></a></h3>
+        <div>Like Embedded System, Like Computer Vision</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      </div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2016/10/07/MicroZed使用记录/" title="MicroZed使用记录"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2016/04/23/MinnowBoard-MAX开发环境搭建/" title="MinnowBoard MAX开发环境搭建"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.jpg" alt="Scan Qrcode" title="Scan">
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="Scan Qrcode" title="Scan">
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class>
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-  </body>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/fengjinyuan" target="_blank" title="Github" data-toggle="tooltip" data-placement="top"><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle="tooltip" data-placement="top"><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+    <script defer>
+    var disqus_config = function () {
+        
+            this.page.url = 'http://fengjinyuan.github.io/2016/06/03/简单物联网组建/';
+        
+        this.page.identifier = '简单物联网组建';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'null' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+
+
+
+
+
+</body>
 </html>
