@@ -2,7 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://fengjinyuan.github.io/tags/index.html</loc>
+    <loc>http://fengjinyuan.github.io/2019/05/16/tutorial-quaternion-formula/</loc>
+    
+    <lastmod>2019-05-16T14:14:17.416Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fengjinyuan.github.io/2019/05/16/tutorial-Rodrigues-Formula/</loc>
+    
+    <lastmod>2019-05-16T14:11:39.733Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fengjinyuan.github.io/2019/04/09/technology-Build-DL-based-on-Docker/</loc>
+    
+    <lastmod>2019-05-16T14:10:33.619Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fengjinyuan.github.io/books/index.html</loc>
     
     <lastmod>2019-04-15T06:37:45.931Z</lastmod>
     
@@ -16,14 +37,14 @@
   </url>
   
   <url>
-    <loc>http://fengjinyuan.github.io/books/index.html</loc>
+    <loc>http://fengjinyuan.github.io/repository/index.html</loc>
     
     <lastmod>2019-04-15T06:37:45.931Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://fengjinyuan.github.io/about/index.html</loc>
+    <loc>http://fengjinyuan.github.io/tags/index.html</loc>
     
     <lastmod>2019-04-15T06:37:45.931Z</lastmod>
     
@@ -37,7 +58,7 @@
   </url>
   
   <url>
-    <loc>http://fengjinyuan.github.io/repository/index.html</loc>
+    <loc>http://fengjinyuan.github.io/about/index.html</loc>
     
     <lastmod>2019-04-15T06:37:45.931Z</lastmod>
     
@@ -47,13 +68,6 @@
     <loc>http://fengjinyuan.github.io//404.html</loc>
     
     <lastmod>2019-04-15T06:37:45.921Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://fengjinyuan.github.io/2019/04/09/technology-Build-DL-based-on-Docker/</loc>
-    
-    <lastmod>2019-04-09T12:48:13.919Z</lastmod>
     
   </url>
   

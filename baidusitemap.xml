@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://fengjinyuan.github.io/2019/05/16/tutorial-quaternion-formula/</loc>
+    <lastmod>2019-05-16</lastmod>
+  </url>  <url>
+    <loc>http://fengjinyuan.github.io/2019/05/16/tutorial-Rodrigues-Formula/</loc>
+    <lastmod>2019-05-16</lastmod>
+  </url>  <url>
     <loc>http://fengjinyuan.github.io/2019/04/09/technology-Build-DL-based-on-Docker/</loc>
-    <lastmod>2019-04-09</lastmod>
+    <lastmod>2019-05-16</lastmod>
   </url>  <url>
     <loc>http://fengjinyuan.github.io/2015/11/06/Quick-Start-Hexo/</loc>
     <lastmod>2019-04-09</lastmod>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fengjinyuan.github.io/"/>
-  <updated>2019-04-09T12:48:13.919Z</updated>
+  <updated>2019-05-16T14:14:17.416Z</updated>
   <id>http://fengjinyuan.github.io/</id>
   
   <author>
@@ -17,11 +17,55 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>[tutorial] quaternion formula</title>
+    <link href="http://fengjinyuan.github.io/2019/05/16/tutorial-quaternion-formula/"/>
+    <id>http://fengjinyuan.github.io/2019/05/16/tutorial-quaternion-formula/</id>
+    <published>2019-05-16T14:12:35.000Z</published>
+    <updated>2019-05-16T14:14:17.416Z</updated>
+    
+    <content type="html"><![CDATA[<div class="row">    <embed src="/2019/05/16/tutorial-quaternion-formula/Quaternion.pdf" width="100%" height="550" type="application/pdf"></div>]]></content>
+    
+    <summary type="html">
+    
+      Quaternion Formula
+    
+    </summary>
+    
+      <category term="Research" scheme="http://fengjinyuan.github.io/categories/Research/"/>
+    
+    
+      <category term="Research" scheme="http://fengjinyuan.github.io/tags/Research/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[tutorial] Rodrigues Formula</title>
+    <link href="http://fengjinyuan.github.io/2019/05/16/tutorial-Rodrigues-Formula/"/>
+    <id>http://fengjinyuan.github.io/2019/05/16/tutorial-Rodrigues-Formula/</id>
+    <published>2019-05-16T14:06:54.000Z</published>
+    <updated>2019-05-16T14:11:39.733Z</updated>
+    
+    <content type="html"><![CDATA[<div class="row">    <embed src="/2019/05/16/tutorial-Rodrigues-Formula/Rodrigues.pdf" width="100%" height="550" type="application/pdf"></div>]]></content>
+    
+    <summary type="html">
+    
+      Rodrigues Formula
+    
+    </summary>
+    
+      <category term="Research" scheme="http://fengjinyuan.github.io/categories/Research/"/>
+    
+    
+      <category term="Research" scheme="http://fengjinyuan.github.io/tags/Research/"/>
+    
+  </entry>
+  
+  <entry>
     <title>[tech] DeepLearning+Docker</title>
     <link href="http://fengjinyuan.github.io/2019/04/09/technology-Build-DL-based-on-Docker/"/>
     <id>http://fengjinyuan.github.io/2019/04/09/technology-Build-DL-based-on-Docker/</id>
     <published>2019-04-09T12:35:41.000Z</published>
-    <updated>2019-04-09T12:48:13.919Z</updated>
+    <updated>2019-05-16T14:10:33.619Z</updated>
     
     <content type="html"><![CDATA[<div class="row">    <embed src="/2019/04/09/technology-Build-DL-based-on-Docker/Build_DL_based_on_docker.pdf" width="100%" height="550" type="application/pdf"></div>]]></content>
     
@@ -402,50 +446,6 @@
     <summary type="html">
     
       fengjinyuan’blog Markdown的使用
-    
-    </summary>
-    
-      <category term="技术" scheme="http://fengjinyuan.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="技术" scheme="http://fengjinyuan.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Forgetter</title>
-    <link href="http://fengjinyuan.github.io/2016/02/14/Forgetter/"/>
-    <id>http://fengjinyuan.github.io/2016/02/14/Forgetter/</id>
-    <published>2016-02-14T08:36:21.000Z</published>
-    <updated>2019-04-09T12:06:44.212Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/2016/02/14/Forgetter/h1.jpg" alt=""></p><h2 id="Forgetter"><a href="#Forgetter" class="headerlink" title="Forgetter"></a>Forgetter</h2><p>&#x770B;&#xFF0C;&#x90A3;&#x91CC;&#x6709;&#x4E2A;&#x4EBA;&#x3002;<br>&#x5FD8;&#x8BB0;&#x4E86;&#x5403;&#x996D;&#xFF0C;&#x5DE5;&#x4F5C;&#x8FD8;&#x5728;&#x7EE7;&#x7EED;&#x3002;<br>&#x5FD8;&#x8BB0;&#x4E86;&#x7761;&#x89C9;&#xFF0C;&#x7B14;&#x8FD8;&#x6CA1;&#x6709;&#x653E;&#x4E0B;&#x3002;</p><p>&#x54DF;&#xFF0C;&#x8FD8;&#x662F;&#x90A3;&#x4E2A;&#x4EBA;&#x3002;<br>&#x5FD8;&#x8BB0;&#x4E86;&#x5C0F;&#x5B66;&#xFF0C;&#x8DD1;&#x8FDB;&#x4E86;&#x4E2D;&#x5B66;&#x3002;<br>&#x5FD8;&#x8BB0;&#x4E86;&#x4E2D;&#x5B66;&#xFF0C;&#x8D70;&#x8FDB;&#x4E86;&#x5927;&#x5B66;&#x3002;</p><p>&#x54A6;&#xFF0C;&#x53C8;&#x662F;&#x90A3;&#x4E2A;&#x4EBA;&#x3002;<br>&#x614C;&#x5F20;&#xFF0C;&#x6050;&#x60E7;&#xFF0C;&#x62C5;&#x5FE7;&#x3002;<br>&#x614C;&#x5F20;&#x4EC0;&#x4E48;&#xFF0C;&#x5FD8;&#x8BB0;&#x4E86;&#x3002;<br>&#x6050;&#x60E7;&#x4EC0;&#x4E48;&#xFF0C;&#x5FD8;&#x8BB0;&#x4E86;&#x3002;<br>&#x62C5;&#x5FE7;&#x4EC0;&#x4E48;&#xFF0C;&#x5FD8;&#x8BB0;&#x4E86;&#x3002;</p><p>&#x55EF;&#xFF0C;&#x4E00;&#x4E2A;&#x5065;&#x5FD8;&#x7684;&#x4EBA;&#x3002;</p>]]></content>
-    
-    <summary type="html">
-    
-      冯金源的blog之旅
-    
-    </summary>
-    
-      <category term="杂文" scheme="http://fengjinyuan.github.io/categories/%E6%9D%82%E6%96%87/"/>
-    
-    
-      <category term="杂文" scheme="http://fengjinyuan.github.io/tags/%E6%9D%82%E6%96%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Quick Start Hexo</title>
-    <link href="http://fengjinyuan.github.io/2015/11/06/Quick-Start-Hexo/"/>
-    <id>http://fengjinyuan.github.io/2015/11/06/Quick-Start-Hexo/</id>
-    <published>2015-11-06T03:16:52.000Z</published>
-    <updated>2019-04-09T12:06:47.458Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Config-Environment"><a href="#Config-Environment" class="headerlink" title="Config Environment"></a>Config Environment</h2><h3 id="Install-Node-JS"><a href="#Install-Node-JS" class="headerlink" title="Install Node.JS"></a>Install Node.JS</h3><p>Node.JS Download Url:(<a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a>)</p><h3 id="Create-Blog-Environment"><a href="#Create-Blog-Environment" class="headerlink" title="Create Blog Environment"></a>Create Blog Environment</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir blog // Create a directory named <span class="string">&apos;blog&apos;</span></span><br></pre></td></tr></table></figure><h3 id="Install-Hexo-under-Blog-Environment"><a href="#Install-Hexo-under-Blog-Environment" class="headerlink" title="Install Hexo under Blog Environment"></a>Install Hexo under Blog Environment</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> blog</span><br><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure><h3 id="Create-a-new-blog"><a href="#Create-a-new-blog" class="headerlink" title="Create a new blog"></a>Create a new blog</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init myblog // generate a directory named <span class="string">&apos;myblog&apos;</span> after performed</span><br><span class="line">$ <span class="built_in">cd</span> myblog</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> myblog</span><br><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
-    
-    <summary type="html">
-    
-      HEXO的基本使用
     
     </summary>
     
