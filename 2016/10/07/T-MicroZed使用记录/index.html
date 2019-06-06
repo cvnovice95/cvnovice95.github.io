@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000">
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top">
+  
+  
+  <title>[T]MicroZed使用记录 | CVNovice</title>
+  <meta name="description" content="MicroZed的使用">
+<meta name="keywords" content="MicroZed 使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[T]MicroZed使用记录">
+<meta property="og:url" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/index.html">
+<meta property="og:site_name" content="嵌入式小白|blog">
+<meta property="og:description" content="MicroZed的使用">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/1.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/2.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/3.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/4.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/5.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/6.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/7.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/8.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/9.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/10.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/11.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/12.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/13.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/14.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/15.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/16.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/17.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/18.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/19.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/20.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/21.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/22.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/23.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/24.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/25.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/26.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/27.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/28.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/29.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/30.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/31.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/32.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/33.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/34.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/35.jpg">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/36.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/37.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/38.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/39.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/40.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/44.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/42.jpg">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/41.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/43.jpg">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/41.png">
+<meta property="og:updated_time" content="2019-06-06T11:06:25.368Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[T]MicroZed使用记录">
+<meta name="twitter:description" content="MicroZed的使用">
+<meta name="twitter:image" content="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/1.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="嵌入式小白|blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+  
+  
+</head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/fengjinyuan" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">CVNovice</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Master of Software Engineering</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Chongqing, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search">
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech>
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/fengjinyuan" target="_blank" title="Github" data-toggle="tooltip" data-placement="top"><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle="tooltip" data-placement="top"><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Research/">Research</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂文/">杂文</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/资源/">资源</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Research/">Research</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术/">技术</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂文/">杂文</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源/">资源</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Research/" style="font-size: 13.5px;">Research</a> <a href="/tags/技术/" style="font-size: 14px;">技术</a> <a href="/tags/杂文/" style="font-size: 13px;">杂文</a> <a href="/tags/资源/" style="font-size: 13px;">资源</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled ">
+        
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2019/05/16/R-quaternion-formula/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Research/">Research</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/05/16/R-quaternion-formula/" class="title">[R] quaternion formula</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-05-16T14:12:35.000Z" itemprop="datePublished">2019-05-16</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2019/05/16/R-Rodrigues-Formula/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Research/">Research</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/05/16/R-Rodrigues-Formula/" class="title">[R] Rodrigues Formula</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-05-16T14:06:54.000Z" itemprop="datePublished">2019-05-16</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2019/04/09/T-Build-DL-based-on-Docker/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Research/">Research</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/04/09/T-Build-DL-based-on-Docker/" class="title">[T]基于Docker的DeepLearning平台</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-04-09T12:35:41.000Z" itemprop="datePublished">2019-04-09</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2019/04/09/C-GCN-GAN-RL/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Research/">Research</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/04/09/C-GCN-GAN-RL/" class="title">[C]GCN+GAN+RL Summary</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-04-09T09:15:22.000Z" itemprop="datePublished">2019-04-09</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2016/12/02/T-hadoop2-7-3-集群搭建/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/技术/">技术</a>
+              </p>
+              <p class="item-title">
+                <a href="/2016/12/02/T-hadoop2-7-3-集群搭建/" class="title">[T]hadoop2.7.3 集群搭建(Ubuntu)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2016-12-02T03:24:52.000Z" itemprop="datePublished">2016-12-02</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-T-MicroZed使用记录" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      [T]MicroZed使用记录
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2016/10/07/T-MicroZed使用记录/" class="article-date">
+	  <time datetime="2016-10-07T04:00:23.000Z" itemprop="datePublished">2016-10-07</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/技术/">技术</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/技术/">技术</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2016/10/07/T-MicroZed使用记录/#comments" class="article-comment-link">Comments</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 725(words)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 4(minutes)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</h1><p>   &#x4E4B;&#x524D;&#x73A9;&#x8FC7;51,Arduino,STM32,ARM7,FPGA(Spartan6),&#x56FD;&#x5E86;&#x62FF;&#x8001;&#x5E08;&#x7684;MicroZed&#x6298;&#x817E;&#x4E86;&#x4E00;&#x756A;&#x89C9;&#x5F97;&#x8FD8;&#x662F;&#x86EE;&#x597D;&#x73A9;&#x7684;&#x3002;<br>&#x4E0B;&#x9762;&#x8BE6;&#x7EC6;&#x8BB0;&#x5F55;&#x6211;&#x7684;&#x64CD;&#x4F5C;&#x8FC7;&#x7A0B;&#x3002;</p>
+<h2 id="&#x5F00;&#x53D1;&#x73AF;&#x5883;"><a href="#&#x5F00;&#x53D1;&#x73AF;&#x5883;" class="headerlink" title="&#x5F00;&#x53D1;&#x73AF;&#x5883;"></a>&#x5F00;&#x53D1;&#x73AF;&#x5883;</h2><blockquote>
+<p>&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#xFF1A;&#x4E3B;&#x673A;Ubuntu16.04 &#x865A;&#x62DF;&#x673A;win7(sp1)   PS:IDE&#x5B89;&#x88C5;&#x5728;WIN7<br>IDE&#xFF1A; Vivado 2016.1<br>&#x5176;&#x4ED6;&#x5DE5;&#x5177;: putty</p>
+</blockquote>
+<h2 id="&#x51C6;&#x5907;&#x5DE5;&#x4F5C;"><a href="#&#x51C6;&#x5907;&#x5DE5;&#x4F5C;" class="headerlink" title="&#x51C6;&#x5907;&#x5DE5;&#x4F5C;"></a>&#x51C6;&#x5907;&#x5DE5;&#x4F5C;</h2><pre><code>&#x9996;&#x5148;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x53BB;MicroZed&#x5B98;&#x7F51;&#x4E0B;&#x8F7D;&#x4E00;&#x4E9B;&#x4E1C;&#x897F;,&#x4E3B;&#x8981;&#x662F;&#x5F00;&#x53D1;&#x677F;&#x4FE1;&#x606F;,&#x8FD8;&#x6709;PS&#x90E8;&#x5206;&#x7684;&#x914D;&#x7F6E;&#x4FE1;&#x606F;&#x3002;
+</code></pre><p>Vivado&#x76EE;&#x524D;&#x5BF9;&#x7B2C;&#x4E09;&#x65B9;&#x7684;&#x5F00;&#x53D1;&#x677F;&#x652F;&#x6301;&#x8FD8;&#x4E0D;&#x662F;&#x5F88;&#x5B8C;&#x5584;&#x3002;<br>&#x4E0B;&#x56FE;&#x662F;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4E0B;&#x8F7D;&#x7684;&#x4E24;&#x4E2A;&#x6587;&#x4EF6;<br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/1.png" alt><br> &#x89E3;&#x538B;&#x56FE;&#x4E00;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x5F97;&#x5230;&#x5982;&#x4E0B;&#x56FE;&#x7ED3;&#x679C;<br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/2.png" alt><br> &#x6211;&#x4EEC;&#x5C06;&#x89E3;&#x538B;&#x5F97;&#x5230;&#x7684;&#x7ED3;&#x679C;,&#x653E;&#x7F6E;Vivado&#x5B89;&#x88C5;&#x76EE;&#x5F55;&#x4E0B;&#x7684;  Vivado/2016.1/data/boards/board_files/ &#x64CD;&#x4F5C;&#x5B8C;&#x5982;&#x56FE;<br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/3.png" alt><br>&#x89E3;&#x538B;&#x56FE;&#x4E00;&#x7684;&#x7B2C;&#x4E8C;&#x4E2A;&#x6587;&#x4EF6;&#x5F97;&#x5230;&#x5982;&#x4E0B;&#x56FE;&#x7ED3;&#x679C;<br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/4.png" alt><br>&#x627E;&#x4E00;&#x4E2A;&#x78C1;&#x76D8;&#x5728;&#x78C1;&#x76D8;&#x4E0B;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;microzed&#x6587;&#x4EF6;&#x5939;,<br>&#x5728;microzed&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x5EFA;&#x7ACB;scripts&#x6587;&#x4EF6;&#x5939; ,&#x653E;&#x5165;&#x521A;&#x624D;&#x89E3;&#x538B;&#x5F97;&#x5230;&#x7684;tcl&#x6587;&#x4EF6;,&#x64CD;&#x4F5C;&#x5B8C;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#x56FE;<br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/5.png" alt></p>
+<h1 id="&#x786C;&#x4EF6;&#x73AF;&#x5883;&#x6784;&#x5EFA;"><a href="#&#x786C;&#x4EF6;&#x73AF;&#x5883;&#x6784;&#x5EFA;" class="headerlink" title="&#x786C;&#x4EF6;&#x73AF;&#x5883;&#x6784;&#x5EFA;"></a>&#x786C;&#x4EF6;&#x73AF;&#x5883;&#x6784;&#x5EFA;</h1><h2 id="&#x5F00;&#x59CB;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x9879;&#x76EE;"><a href="#&#x5F00;&#x59CB;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x9879;&#x76EE;" class="headerlink" title="&#x5F00;&#x59CB;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x9879;&#x76EE;"></a>&#x5F00;&#x59CB;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x9879;&#x76EE;</h2><p>&#x64CD;&#x4F5C;&#x5982;&#x4E0B;&#x56FE;<br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/6.png" alt></p>
+<p><hr><br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/7.png" alt></p>
+<p><hr><br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/8.png" alt></p>
+<p><hr><br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/9.png" alt><br>&#x70B9;&#x51FB;&#x5B8C;&#x6210;&#x540E;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x9879;&#x76EE;&#x5EFA;&#x7ACB;&#x5B8C;&#x6BD5;</p>
+<h2 id="&#x914D;&#x7F6E;&#x786C;&#x4EF6;&#x4FE1;&#x606F;"><a href="#&#x914D;&#x7F6E;&#x786C;&#x4EF6;&#x4FE1;&#x606F;" class="headerlink" title="&#x914D;&#x7F6E;&#x786C;&#x4EF6;&#x4FE1;&#x606F;"></a>&#x914D;&#x7F6E;&#x786C;&#x4EF6;&#x4FE1;&#x606F;</h2><p>&#x64CD;&#x4F5C;&#x5982;&#x4E0B;&#x56FE;<br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/10.png" alt><br>&#x5728;&#x5DE6;&#x4FA7;&#x5BFC;&#x822A;&#x680F;&#x53CC;&#x51FB;Create Block Design &#x5F39;&#x51FA;&#x4E0B;&#x56FE;&#x5BF9;&#x8BDD;&#x6846; &#x8F93;&#x5165;&#x8BBE;&#x8BA1;&#x540D;&#x5B57;System<br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/11.png" alt><br>&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;IP&#x6838;<br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/12.png" alt></p>
+<p><hr><br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/13.png" alt><br>&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x7528;tcl&#x6587;&#x4EF6;&#x6765;&#x914D;&#x7F6E;&#x6211;&#x4EEC;&#x7684;PS &#x64CD;&#x4F5C;&#x5982;&#x56FE;<br>&#x5728;&#x547D;&#x4EE4;&#x884C;&#x5904;&#x8F93;&#x5165;  source  &#x521A;&#x624D;&#x5B58;&#x653E;&#x7684;tcl&#x6587;&#x4EF6;  &#x7136;&#x540E;&#x56DE;&#x8F66;<br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/14.png" alt><br>&#x5355;&#x51FB;Run Block Autonation<br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/15.png" alt><br>&#x9A8C;&#x8BC1;&#x914D;&#x7F6E;<br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/16.png" alt></p>
+<p><hr><br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/17.png" alt></p>
+<h2 id="&#x751F;&#x6210;&#x9876;&#x5C42;&#x6587;&#x4EF6;"><a href="#&#x751F;&#x6210;&#x9876;&#x5C42;&#x6587;&#x4EF6;" class="headerlink" title="&#x751F;&#x6210;&#x9876;&#x5C42;&#x6587;&#x4EF6;"></a>&#x751F;&#x6210;&#x9876;&#x5C42;&#x6587;&#x4EF6;</h2><p>&#x64CD;&#x4F5C;&#x5982;&#x4E0B;<br>&#x53F3;&#x51FB;System &#x5355;&#x51FB; Generate Output Products<br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/18.png" alt></p>
+<p><hr><br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/19.png" alt><br>&#x53F3;&#x51FB;System &#x5355;&#x51FB; Generate HDL Wrapper<br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/20.png" alt><br>&#x5728;&#x5DE6;&#x4FA7;&#x5BFC;&#x822A;&#x680F;&#x53CC;&#x51FB; Generate Bitstream<br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/21.png" alt><br>&#x5728;File-&gt;Export-&gt;Export Hardware<br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/22.png" alt><br>&#x542F;&#x52A8;SDK<br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/23.png" alt></p>
+<p><hr><br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/24.png" alt><br>&#x5230;&#x8FD9;&#x91CC;&#x786C;&#x4EF6;&#x73AF;&#x5883;&#x5C31;&#x914D;&#x7F6E;&#x5B8C;&#x4E86;.</p>
+<h1 id="&#x8F6F;&#x4EF6;&#x5F00;&#x53D1;"><a href="#&#x8F6F;&#x4EF6;&#x5F00;&#x53D1;" class="headerlink" title="&#x8F6F;&#x4EF6;&#x5F00;&#x53D1;"></a>&#x8F6F;&#x4EF6;&#x5F00;&#x53D1;</h1><h2 id="&#x65B0;&#x5EFA;&#x5F00;&#x53D1;&#x677F;&#x7684;&#x652F;&#x6301;&#x5305;"><a href="#&#x65B0;&#x5EFA;&#x5F00;&#x53D1;&#x677F;&#x7684;&#x652F;&#x6301;&#x5305;" class="headerlink" title="&#x65B0;&#x5EFA;&#x5F00;&#x53D1;&#x677F;&#x7684;&#x652F;&#x6301;&#x5305;"></a>&#x65B0;&#x5EFA;&#x5F00;&#x53D1;&#x677F;&#x7684;&#x652F;&#x6301;&#x5305;</h2><p>file-&gt;new-&gt;board support package<br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/25.png" alt></p>
+<h2 id="&#x65B0;&#x5EFA;&#x5E94;&#x7528;"><a href="#&#x65B0;&#x5EFA;&#x5E94;&#x7528;" class="headerlink" title="&#x65B0;&#x5EFA;&#x5E94;&#x7528;"></a>&#x65B0;&#x5EFA;&#x5E94;&#x7528;</h2><p>file-&gt;new-&gt;Application<br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/26.png" alt></p>
+<p><hr><br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/27.png" alt><br>&#x8FDE;&#x63A5;&#x597D;&#x5F00;&#x53D1;&#x677F;,&#x70B9;&#x51FB;Xilinx tools-&gt;program FPGA<br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/28.png" alt></p>
+<p><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/29.png" alt><br>&#x914D;&#x7F6E;HelloWord&#x5E94;&#x7528;&#x7684;&#x8FD0;&#x884C;&#x73AF;&#x5883;,&#x6211;&#x4EEC;&#x76F4;&#x63A5;&#x914D;&#x7F6E;Release&#x7248;&#x672C; &#x65B9;&#x4FBF;&#x540E;&#x9762;&#x7684;fsbl&#x6587;&#x4EF6;&#x7684;&#x751F;&#x6210;&#x3002;<br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/30.png" alt></p>
+<p><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/31.png" alt><br>&#x914D;&#x7F6E;Run Configuration<br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/32.png" alt><br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/33.png" alt><br>&#x9009;&#x4E2D;&#x5E94;&#x7528;&#x8FD0;&#x884C;,&#x53EF;&#x4EE5;&#x5728;&#x63A7;&#x5236;&#x53F0;&#x770B;&#x5230;&#x5982;&#x4E0B;&#x7ED3;&#x679C;<br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/34.png" alt></p>
+<p>&#x4EE5;&#x4E0A;&#x7684;&#x64CD;&#x4F5C;&#x90FD;&#x662F;&#x901A;&#x8FC7;xilinx&#x8C03;&#x8BD5;&#x5668;&#x8FD0;&#x884C;&#x7684;&#x3002;&#x786C;&#x4EF6;&#x8DF3;&#x7EBF;&#x8FDE;&#x63A5;&#x5982;&#x4E0B;&#x56FE;<br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/35.jpg" alt></p>
+<h2 id="&#x901A;&#x8FC7;FSBL&#x5F15;&#x5BFC;&#x8FD0;&#x884C;&#x5E94;&#x7528;"><a href="#&#x901A;&#x8FC7;FSBL&#x5F15;&#x5BFC;&#x8FD0;&#x884C;&#x5E94;&#x7528;" class="headerlink" title="&#x901A;&#x8FC7;FSBL&#x5F15;&#x5BFC;&#x8FD0;&#x884C;&#x5E94;&#x7528;"></a>&#x901A;&#x8FC7;FSBL&#x5F15;&#x5BFC;&#x8FD0;&#x884C;&#x5E94;&#x7528;</h2><p>file-&gt;new-&gt;Application  &#x5EFA;&#x7ACB;FSBL&#x5E94;&#x7528;<br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/36.png" alt><br>&#x8BBE;&#x7F6E;Release&#x7248;&#x672C;<br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/37.png" alt><br>&#x751F;&#x6210;QSPI&#x7684;boot.mcs&#x6587;&#x4EF6; &#x751F;&#x6210;SD&#x7684;boot.bin&#x6587;&#x4EF6;<br>xilinx tools-&gt;Create boot Image<br>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6539;&#x53D8;output Format&#x6765;&#x8F93;&#x51FA;.bin .mcs<br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/38.png" alt><br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/39.png" alt></p>
+<h2 id="&#x901A;&#x8FC7;&#x8C03;&#x8BD5;&#x5668;&#x6765;&#x70E7;&#x5199;&#x8FDB;qspi-&#x7136;&#x540E;&#x901A;&#x8FC7;qspi&#x542F;&#x52A8;"><a href="#&#x901A;&#x8FC7;&#x8C03;&#x8BD5;&#x5668;&#x6765;&#x70E7;&#x5199;&#x8FDB;qspi-&#x7136;&#x540E;&#x901A;&#x8FC7;qspi&#x542F;&#x52A8;" class="headerlink" title="&#x901A;&#x8FC7;&#x8C03;&#x8BD5;&#x5668;&#x6765;&#x70E7;&#x5199;&#x8FDB;qspi,&#x7136;&#x540E;&#x901A;&#x8FC7;qspi&#x542F;&#x52A8;"></a>&#x901A;&#x8FC7;&#x8C03;&#x8BD5;&#x5668;&#x6765;&#x70E7;&#x5199;&#x8FDB;qspi,&#x7136;&#x540E;&#x901A;&#x8FC7;qspi&#x542F;&#x52A8;</h2><p><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/40.png" alt><br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/44.png" alt><br>&#x786C;&#x4EF6;&#x8DF3;&#x7EBF;&#x63A5;&#x7EBF;&#x56FE;<br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/42.jpg" alt><br>&#x901A;&#x8FC7;putty&#x8BBE;&#x7F6E;COM&#x6765;&#x67E5;&#x770B;&#x7ED3;&#x679C;<br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/41.png" alt></p>
+<h2 id="&#x901A;&#x8FC7;sd&#x5361;&#x542F;&#x52A8;"><a href="#&#x901A;&#x8FC7;sd&#x5361;&#x542F;&#x52A8;" class="headerlink" title="&#x901A;&#x8FC7;sd&#x5361;&#x542F;&#x52A8;"></a>&#x901A;&#x8FC7;sd&#x5361;&#x542F;&#x52A8;</h2><p>&#x5C06;boot.bin&#x62F7;&#x8D1D;&#x5230;sd&#x5361;,&#x7136;&#x540E;&#x8BBE;&#x7F6E;&#x786C;&#x4EF6;&#x63A5;&#x7EBF;&#x56FE;&#x5982;&#x4E0B;<br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/43.jpg" alt><br>&#x901A;&#x8FC7;putty&#x8BBE;&#x7F6E;COM&#x6765;&#x67E5;&#x770B;&#x7ED3;&#x679C;<br><img src="/2016/10/07/T-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;/41.png" alt></p>
+<h3 id="&#x5230;&#x8FD9;&#x91CC;&#x6574;&#x4E2A;&#x6D41;&#x7A0B;&#x5C31;&#x5B8C;&#x4E86;-&#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x662F;Linux&#x7684;&#x79FB;&#x690D;&#x4E86;&#x3002;"><a href="#&#x5230;&#x8FD9;&#x91CC;&#x6574;&#x4E2A;&#x6D41;&#x7A0B;&#x5C31;&#x5B8C;&#x4E86;-&#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x662F;Linux&#x7684;&#x79FB;&#x690D;&#x4E86;&#x3002;" class="headerlink" title="&#x5230;&#x8FD9;&#x91CC;&#x6574;&#x4E2A;&#x6D41;&#x7A0B;&#x5C31;&#x5B8C;&#x4E86;,&#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x662F;Linux&#x7684;&#x79FB;&#x690D;&#x4E86;&#x3002;"></a>&#x5230;&#x8FD9;&#x91CC;&#x6574;&#x4E2A;&#x6D41;&#x7A0B;&#x5C31;&#x5B8C;&#x4E86;,&#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x662F;Linux&#x7684;&#x79FB;&#x690D;&#x4E86;&#x3002;</h3>
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/" title="[T]MicroZed使用记录" target="_blank" rel="external">http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/fengjinyuan" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt>
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/fengjinyuan" target="_blank"><span class="text-dark">CVNovice</span><small class="ml-1x">Master of Software Engineering</small></a></h3>
+        <div>Like Embedded System, Like Computer Vision</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      </div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2016/10/10/T-MicroZed的Linux移植/" title="[T]MicroZed的Linux移植"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2016/06/03/T-简单物联网组建/" title="[T]简单物联网组建"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.jpg" alt="Scan Qrcode" title="Scan">
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="Scan Qrcode" title="Scan">
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class>
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/fengjinyuan" target="_blank" title="Github" data-toggle="tooltip" data-placement="top"><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle="tooltip" data-placement="top"><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+    <script defer>
+    var disqus_config = function () {
+        
+            this.page.url = 'http://fengjinyuan.github.io/2016/10/07/T-MicroZed使用记录/';
+        
+        this.page.identifier = 'T-MicroZed使用记录';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'null' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000">
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top">
+  
+  
+  <title>[T]MicroZed的Linux移植 | CVNovice</title>
+  <meta name="description" content="MicroZed Linux移植">
+<meta name="keywords" content="MicroZed Linux移植">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[T]MicroZed的Linux移植">
+<meta property="og:url" content="http://fengjinyuan.github.io/2016/10/10/T-MicroZed的Linux移植/index.html">
+<meta property="og:site_name" content="嵌入式小白|blog">
+<meta property="og:description" content="MicroZed Linux移植">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/10/T-MicroZed的Linux移植/1.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/10/T-MicroZed的Linux移植/2.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/10/T-MicroZed的Linux移植/3.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/10/T-MicroZed的Linux移植/4.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/10/T-MicroZed的Linux移植/5.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/10/T-MicroZed的Linux移植/6.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/10/T-MicroZed的Linux移植/7.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/10/T-MicroZed的Linux移植/8.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/10/T-MicroZed的Linux移植/9.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/10/T-MicroZed的Linux移植/10.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/10/T-MicroZed的Linux移植/15.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/10/T-MicroZed的Linux移植/11.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/10/T-MicroZed的Linux移植/12.jpg">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/10/T-MicroZed的Linux移植/13.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/10/T-MicroZed的Linux移植/14.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/10/T-MicroZed的Linux移植/16.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/10/T-MicroZed的Linux移植/17.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/10/T-MicroZed的Linux移植/18.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/10/T-MicroZed的Linux移植/19.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/10/T-MicroZed的Linux移植/20.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/10/T-MicroZed的Linux移植/21.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/10/T-MicroZed的Linux移植/22.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/10/T-MicroZed的Linux移植/23.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/10/T-MicroZed的Linux移植/24.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/10/T-MicroZed的Linux移植/25.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/10/T-MicroZed的Linux移植/26.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/10/T-MicroZed的Linux移植/27.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/10/T-MicroZed的Linux移植/28.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/10/T-MicroZed的Linux移植/29.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/10/T-MicroZed的Linux移植/30.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2016/10/10/T-MicroZed的Linux移植/31.png">
+<meta property="og:updated_time" content="2019-06-06T11:58:30.288Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[T]MicroZed的Linux移植">
+<meta name="twitter:description" content="MicroZed Linux移植">
+<meta name="twitter:image" content="http://fengjinyuan.github.io/2016/10/10/T-MicroZed的Linux移植/1.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://fengjinyuan.github.io/2016/10/10/T-MicroZed的Linux移植/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="嵌入式小白|blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+  
+  
+</head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/fengjinyuan" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">CVNovice</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Master of Software Engineering</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Chongqing, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search">
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech>
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/fengjinyuan" target="_blank" title="Github" data-toggle="tooltip" data-placement="top"><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle="tooltip" data-placement="top"><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Research/">Research</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂文/">杂文</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/资源/">资源</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Research/">Research</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术/">技术</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂文/">杂文</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源/">资源</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Research/" style="font-size: 13.5px;">Research</a> <a href="/tags/技术/" style="font-size: 14px;">技术</a> <a href="/tags/杂文/" style="font-size: 13px;">杂文</a> <a href="/tags/资源/" style="font-size: 13px;">资源</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled ">
+        
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2019/05/16/R-quaternion-formula/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Research/">Research</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/05/16/R-quaternion-formula/" class="title">[R] quaternion formula</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-05-16T14:12:35.000Z" itemprop="datePublished">2019-05-16</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2019/05/16/R-Rodrigues-Formula/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Research/">Research</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/05/16/R-Rodrigues-Formula/" class="title">[R] Rodrigues Formula</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-05-16T14:06:54.000Z" itemprop="datePublished">2019-05-16</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2019/04/09/T-Build-DL-based-on-Docker/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Research/">Research</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/04/09/T-Build-DL-based-on-Docker/" class="title">[T]基于Docker的DeepLearning平台</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-04-09T12:35:41.000Z" itemprop="datePublished">2019-04-09</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2019/04/09/C-GCN-GAN-RL/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Research/">Research</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/04/09/C-GCN-GAN-RL/" class="title">[C]GCN+GAN+RL Summary</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-04-09T09:15:22.000Z" itemprop="datePublished">2019-04-09</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2016/12/02/T-hadoop2-7-3-集群搭建/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/技术/">技术</a>
+              </p>
+              <p class="item-title">
+                <a href="/2016/12/02/T-hadoop2-7-3-集群搭建/" class="title">[T]hadoop2.7.3 集群搭建(Ubuntu)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2016-12-02T03:24:52.000Z" itemprop="datePublished">2016-12-02</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-T-MicroZed的Linux移植" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      [T]MicroZed的Linux移植
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2016/10/10/T-MicroZed的Linux移植/" class="article-date">
+	  <time datetime="2016-10-09T23:05:40.000Z" itemprop="datePublished">2016-10-10</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/技术/">技术</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/技术/">技术</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2016/10/10/T-MicroZed的Linux移植/#comments" class="article-comment-link">Comments</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 925(words)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 5(minutes)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="MicroZed-Linux&#x79FB;&#x690D;&#x4E0E;&#x7F16;&#x7A0B;"><a href="#MicroZed-Linux&#x79FB;&#x690D;&#x4E0E;&#x7F16;&#x7A0B;" class="headerlink" title="MicroZed Linux&#x79FB;&#x690D;&#x4E0E;&#x7F16;&#x7A0B;"></a>MicroZed Linux&#x79FB;&#x690D;&#x4E0E;&#x7F16;&#x7A0B;</h1><h2 id="&#x64CD;&#x4F5C;&#x73AF;&#x5883;"><a href="#&#x64CD;&#x4F5C;&#x73AF;&#x5883;" class="headerlink" title="&#x64CD;&#x4F5C;&#x73AF;&#x5883;"></a>&#x64CD;&#x4F5C;&#x73AF;&#x5883;</h2><blockquote>
+<p>&#x4E3B;&#x673A;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;:ubuntu16.04<br>&#x865A;&#x62DF;&#x673A;&#x7CFB;&#x7EDF;:win7(sp1)</p>
+</blockquote>
+<h2 id="&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;"><a href="#&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;" class="headerlink" title="&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;"></a>&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">MicroZed</span><br><span class="line">	|----uboot    //&#x5B58;&#x653E;uboot&#x6E90;&#x7801;</span><br><span class="line">	|----linux    //&#x5B58;&#x653E;linux&#x6E90;&#x7801;</span><br><span class="line">	|----filesystem  //&#x7528;&#x6765;&#x6784;&#x5EFA;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;</span><br><span class="line">	|----devicetree  //&#x5B58;&#x653E;&#x8BBE;&#x5907;&#x6811;</span><br><span class="line">	|----MySD        //&#x5B58;&#x653E;&#x8981;&#x8981;&#x62F7;&#x5165;SD&#x5361;&#x7684;&#x6587;&#x4EF6;,uImage,u-boot,devicetree,uramdisk.image.gz</span><br><span class="line">win7share   //&#x7528;&#x4E8E;&#x5728;&#x865A;&#x62DF;&#x673A;&#x95F4;&#x4F20;&#x9012;&#x6587;&#x4EF6;</span><br><span class="line">tools-arm   //&#x5B58;&#x653E;&#x4EA4;&#x53C9;&#x7F16;&#x8BD1;&#x5DE5;&#x5177;&#x94FE;</span><br></pre></td></tr></table></figure>
+<h2 id="&#x4E0B;&#x8F7D;&#x4E0E;&#x914D;&#x7F6E;&#x4EA4;&#x53C9;&#x7F16;&#x8BD1;&#x5DE5;&#x5177;&#x94FE;"><a href="#&#x4E0B;&#x8F7D;&#x4E0E;&#x914D;&#x7F6E;&#x4EA4;&#x53C9;&#x7F16;&#x8BD1;&#x5DE5;&#x5177;&#x94FE;" class="headerlink" title="&#x4E0B;&#x8F7D;&#x4E0E;&#x914D;&#x7F6E;&#x4EA4;&#x53C9;&#x7F16;&#x8BD1;&#x5DE5;&#x5177;&#x94FE;"></a>&#x4E0B;&#x8F7D;&#x4E0E;&#x914D;&#x7F6E;&#x4EA4;&#x53C9;&#x7F16;&#x8BD1;&#x5DE5;&#x5177;&#x94FE;</h2><blockquote>
+<p>&#x4E0B;&#x8F7D;&#x5730;&#x5740;  <a href="http://www.veryarm.com/arm-none-linux-gnueabi-gcc" target="_blank" rel="noopener">http://www.veryarm.com/arm-none-linux-gnueabi-gcc</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc</span><br><span class="line">vi profile</span><br><span class="line">//&#x6DFB;&#x52A0;&#x5982;&#x4E0B;&#x4E24;&#x884C;</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="string">&quot;home/&#x7528;&#x6237;/tools-arm/arm-2014.05/bin&quot;</span>;</span><br><span class="line"><span class="built_in">export</span> CROSS_COMPILE=<span class="string">&quot;arm-none-linux-gnueabi-&quot;</span></span><br><span class="line">&#x4FDD;&#x5B58;</span><br><span class="line"><span class="built_in">source</span> /etc/profile //&#x7ACB;&#x5373;&#x751F;&#x6548;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="&#x4E0B;&#x8F7D;&#x7F16;&#x8BD1;uboot"><a href="#&#x4E0B;&#x8F7D;&#x7F16;&#x8BD1;uboot" class="headerlink" title="&#x4E0B;&#x8F7D;&#x7F16;&#x8BD1;uboot"></a>&#x4E0B;&#x8F7D;&#x7F16;&#x8BD1;uboot</h2><blockquote>
+<p>&#x4E0B;&#x8F7D;&#x5730;&#x5740; <a href="https://github.com/Xilinx/u-boot-xlnx/releases" target="_blank" rel="noopener">https://github.com/Xilinx/u-boot-xlnx/releases</a> &#x7248;&#x672C;v2016.2<br>&#x6587;&#x4EF6;&#x89E3;&#x538B; MicroZed/uboot&#x76EE;&#x5F55;&#x4E0B;,&#x7136;&#x540E;&#x8FDB;&#x5165;&#x76EE;&#x5F55;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">make distclean</span><br><span class="line">make zynq_zed_config</span><br><span class="line">make</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#x56FE;&#xFF0C;&#x62F7;&#x8D1D;u-boot&#x5230;MySD<br><img src="/2016/10/10/T-MicroZed&#x7684;Linux&#x79FB;&#x690D;/1.png" alt><br>&#x51FA;&#x73B0;&#x4EE5;&#x4E0B;&#x95EE;&#x9898;,&#x89E3;&#x51B3;&#x529E;&#x6CD5;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.&#x7F3A;&#x5C11;openssl</span><br><span class="line">apt-get install libssl-dev</span><br><span class="line">2.&#x7F3A;&#x5C11;device-tree-compiler</span><br><span class="line">apt-get intsall device-tree-compiler</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="&#x4E0B;&#x8F7D;&#x7F16;&#x8BD1;linux"><a href="#&#x4E0B;&#x8F7D;&#x7F16;&#x8BD1;linux" class="headerlink" title="&#x4E0B;&#x8F7D;&#x7F16;&#x8BD1;linux"></a>&#x4E0B;&#x8F7D;&#x7F16;&#x8BD1;linux</h2><blockquote>
+<p>&#x4E0B;&#x8F7D;&#x5730;&#x5740; <a href="https://github.com/Xilinx/linux-xlnx/releases" target="_blank" rel="noopener">https://github.com/Xilinx/linux-xlnx/releases</a> &#x7248;&#x672C;v2014.2<br>&#x6587;&#x4EF6;&#x89E3;&#x538B; MicroZed/linux&#x76EE;&#x5F55;&#x4E0B;,&#x7136;&#x540E;&#x8FDB;&#x5165;&#x76EE;&#x5F55;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">make ARCH=arm distclean</span><br><span class="line">make ARCH=arm xilinx_zynq_defconfig</span><br><span class="line">make ARCH=arm menuconfig</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>&#x914D;&#x7F6E;RAMDISK,&#x5982;&#x56FE;    &#x4FEE;&#x6539;<br>(8) Default number of RAM disks<br>(32768) Default RAM disk size<br><img src="/2016/10/10/T-MicroZed&#x7684;Linux&#x79FB;&#x690D;/2.png" alt><br><img src="/2016/10/10/T-MicroZed&#x7684;Linux&#x79FB;&#x690D;/3.png" alt><br><img src="/2016/10/10/T-MicroZed&#x7684;Linux&#x79FB;&#x690D;/4.png" alt><br><img src="/2016/10/10/T-MicroZed&#x7684;Linux&#x79FB;&#x690D;/5.png" alt></p>
+</blockquote>
+<blockquote>
+<p>&#x5B8C;&#x6210;&#x540E;&#x4FDD;&#x5B58;,&#x5F00;&#x59CB;&#x7F16;&#x8BD1;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make ARCH=arm uImage LOADADDR=0x00100000</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>&#x7F16;&#x8BD1;&#x5B8C;&#x6210;&#x7ED3;&#x679C;&#x5982;&#x56FE;,&#x62F7;&#x8D1D;uImage&#x5230;MySD<br><img src="/2016/10/10/T-MicroZed&#x7684;Linux&#x79FB;&#x690D;/6.png" alt><br>&#x51FA;&#x73B0;&#x4EE5;&#x4E0B;&#x95EE;&#x9898;,&#x89E3;&#x51B3;&#x529E;&#x6CD5;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. fatal error: curses.h: &#x6CA1;&#x6709;&#x90A3;&#x4E2A;&#x6587;&#x4EF6;&#x6216;&#x76EE;&#x5F55;</span><br><span class="line">apt-get install libncurses5-dev</span><br><span class="line">2. no mkimage </span><br><span class="line">&#x590D;&#x5236;uboot&#x91CC;&#x7684;tools&#x91CC;&#x7684;mkimage&#x5230;  /usr/bin</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="&#x5236;&#x4F5C;&#x548C;&#x4FEE;&#x6539;&#x8BBE;&#x5907;&#x6811;"><a href="#&#x5236;&#x4F5C;&#x548C;&#x4FEE;&#x6539;&#x8BBE;&#x5907;&#x6811;" class="headerlink" title="&#x5236;&#x4F5C;&#x548C;&#x4FEE;&#x6539;&#x8BBE;&#x5907;&#x6811;"></a>&#x5236;&#x4F5C;&#x548C;&#x4FEE;&#x6539;&#x8BBE;&#x5907;&#x6811;</h2><blockquote>
+<p>&#x8FDB;&#x5165;&#x521A;&#x624D;&#x4E0B;&#x8F7D;&#x7684;linux&#x5185;&#x6838;&#x76EE;&#x5F55; &#x8FDB;&#x5165;&#x5230;&#x4EE5;&#x4E0B;&#x76EE;&#x5F55;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cp &#x5185;&#x6838;&#x76EE;&#x5F55;/arch/arm/boot/dts</span><br><span class="line">//&#x627E;&#x5230;zynq-zed.dts</span><br><span class="line">cp ./zynq-zed.dts  &#x5185;&#x6838;&#x76EE;&#x5F55;/</span><br><span class="line">mv zynq-zed.dts devicetree.dts</span><br><span class="line">vi devicetree.dts</span><br><span class="line">//&#x5982;&#x4E0B;&#x56FE;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p><img src="/2016/10/10/T-MicroZed&#x7684;Linux&#x79FB;&#x690D;/7.png" alt><br>&#x6DFB;&#x52A0; ip=192.168.1.10:192.168.1.1:192.168.1.1:255.255.255.0::eth0:none &#x5982;&#x4E0B;&#x56FE;<br><img src="/2016/10/10/T-MicroZed&#x7684;Linux&#x79FB;&#x690D;/8.png" alt></p>
+<blockquote>
+<p>&#x5728;&#x5185;&#x6838;&#x76EE;&#x5F55;&#x4E0B;&#x6267;&#x884C;&#x5982;&#x4E0B;&#x6307;&#x4EE4;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./scripts/dtc/dtc -O dtb -I dts -o devicetree.dtb devicetree.dts</span><br><span class="line">//&#x590D;&#x5236;devicetree.dtb &#x5230;MySD</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>&#x51FA;&#x73B0;&#x9519;&#x8BEF;&#x89E3;&#x51B3;&#x529E;&#x6CD5;:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//&#x8FDB;&#x5165;&#x5185;&#x6838;&#x76EE;&#x5F55;&#x6267;&#x884C;&#x5982;&#x4E0B;&#x64CD;&#x4F5C;</span><br><span class="line">make ARCH=arm CROSS_COMPILE=arm-none-linux-gnueabi- xilinx_zynq_defconfig</span><br><span class="line">make ARCH=arm CROSS_COMPILE=arm-none-linux-gnueabi- dtbs</span><br><span class="line"><span class="built_in">cd</span> &#x5185;&#x6838;&#x76EE;&#x5F55;/arch/arm/boot/dts</span><br><span class="line">cp ./zynq-zed.dtb   &#x5185;&#x6838;&#x76EE;&#x5F55;/</span><br><span class="line">mv zynq-zed.dtb  devicetree.dtb</span><br><span class="line">//&#x62F7;&#x8D1D;devicetree.dtb &#x5230;MySD</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x5236;&#x4F5C;"><a href="#&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x5236;&#x4F5C;" class="headerlink" title="&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x5236;&#x4F5C;"></a>&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x5236;&#x4F5C;</h2><blockquote>
+<p>&#x4E0B;&#x8F7D;ramdisk   <a href="http://www.wiki.xilinx.com/Build+and+Modify+a+Rootfs" target="_blank" rel="noopener">http://www.wiki.xilinx.com/Build+and+Modify+a+Rootfs</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//&#x89E3;&#x538B;&#x6587;&#x4EF6;&#x5230; filesystem &#x8FDB;&#x884C;&#x5982;&#x4E0B;&#x64CD;&#x4F5C;</span><br><span class="line">mv arm_ramdisk.image.gz  ramdisk.image.gz</span><br><span class="line">gunzip ramdisk.image.gz //&#x5F97;&#x5230; ramdisk.image</span><br><span class="line">mkdir tmp_mnt</span><br><span class="line">mkdir tmp_mnt_new</span><br><span class="line">mount -o loop ramdisk.image tmp_mnt/</span><br><span class="line">dd <span class="keyword">if</span>=/dev/zero of=ramdisknew.image bs=1024 count=32768  //&#x5236;&#x4F5C;32MB&#x7684;&#x7A7A;&#x955C;&#x50CF;&#x6587;&#x4EF6;</span><br><span class="line">mke2fs -F ramdisknew.image -L&#x3000;<span class="string">&quot;ramdisk&quot;</span> -b 1024 -m 0    //&#x8F6C;&#x6362;&#x4E3A;ext2&#x683C;&#x5F0F;</span><br><span class="line">tune2fs ramdisknew.image -i 0 //&#x7981;&#x7528;&#x65F6;&#x95F4;&#x68C0;&#x67E5;</span><br><span class="line">chmod a+rwx ramdisknew.image</span><br><span class="line">mount -o loop ramdisknew.image tmp_mnt_new/</span><br><span class="line">cp -R ./tmp_mnt/* ./tmp_mnt_new/   //&#x5C06;ramdisk&#x7684;&#x5185;&#x5BB9;&#x62F7;&#x8D1D;&#x5230;&#x65B0;ramdisk&#x53BB;</span><br><span class="line">umount  tmp_mnt</span><br><span class="line">umount tmp_mnt_new</span><br><span class="line">gzip ramdisknew.image</span><br><span class="line">mkimage -A arm -T ramdisk -C gzip -d ramdisknew.image.gz uramdisk.iamge.gz</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>&#x64CD;&#x4F5C;&#x5B8C;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#x56FE;,&#x62F7;&#x8D1D;uramdisk.iamge.gz&#x5230;MySD<br><img src="/2016/10/10/T-MicroZed&#x7684;Linux&#x79FB;&#x690D;/9.png" alt></p>
+</blockquote>
+<blockquote>
+<p>&#x6700;&#x7EC8;MySD&#x5185;&#x5BB9;&#x5982;&#x4E0B;<br><img src="/2016/10/10/T-MicroZed&#x7684;Linux&#x79FB;&#x690D;/10.png" alt></p>
+</blockquote>
+<h2 id="xilinx-tools&#x5236;&#x4F5C;BOOT-bin-&#x6765;&#x81EA;&#x4E0A;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;"><a href="#xilinx-tools&#x5236;&#x4F5C;BOOT-bin-&#x6765;&#x81EA;&#x4E0A;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;-MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;" class="headerlink" title="xilinx tools&#x5236;&#x4F5C;BOOT.bin  (&#x6765;&#x81EA;&#x4E0A;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;:MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;)"></a>xilinx tools&#x5236;&#x4F5C;BOOT.bin  (&#x6765;&#x81EA;&#x4E0A;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;:MicroZed&#x4F7F;&#x7528;&#x8BB0;&#x5F55;)</h2><p><img src="/2016/10/10/T-MicroZed&#x7684;Linux&#x79FB;&#x690D;/15.png" alt></p>
+<blockquote>
+<p>&#x6700;&#x7EC8;&#x6587;&#x4EF6;&#x5982;&#x4E0B;,&#x5C06;&#x8BE5;&#x6587;&#x4EF6;&#x62F7;&#x5165;SD&#x5361;,&#x8FDE;&#x63A5;&#x5F00;&#x53D1;&#x677F;,&#x91CD;&#x65B0;&#x4E0A;&#x7535;,&#x901A;&#x8FC7;putty&#x67E5;&#x770B;&#x3002;</p>
+</blockquote>
+<center><br>    <img src="/2016/10/10/T-MicroZed&#x7684;Linux&#x79FB;&#x690D;/11.png" width="70%" height="70%"><br></center>
+
+<center><br>    <img src="/2016/10/10/T-MicroZed&#x7684;Linux&#x79FB;&#x690D;/12.jpg" width="50%" height="50%"><br></center>
+
+<p><img src="/2016/10/10/T-MicroZed&#x7684;Linux&#x79FB;&#x690D;/13.png" alt></p>
+<h2 id="&#x642D;&#x5EFA;&#x8F6F;&#x4EF6;&#x8C03;&#x8BD5;&#x73AF;&#x5883;"><a href="#&#x642D;&#x5EFA;&#x8F6F;&#x4EF6;&#x8C03;&#x8BD5;&#x73AF;&#x5883;" class="headerlink" title="&#x642D;&#x5EFA;&#x8F6F;&#x4EF6;&#x8C03;&#x8BD5;&#x73AF;&#x5883;"></a>&#x642D;&#x5EFA;&#x8F6F;&#x4EF6;&#x8C03;&#x8BD5;&#x73AF;&#x5883;</h2><ul>
+<li>&#x6784;&#x5EFA;&#x5F00;&#x53D1;&#x677F;&#x4E0E;&#x4E3B;&#x673A;&#x95F4;&#x5C40;&#x57DF;&#x7F51;,&#x5982;&#x56FE;<br><img src="/2016/10/10/T-MicroZed&#x7684;Linux&#x79FB;&#x690D;/14.png" alt><br><img src="/2016/10/10/T-MicroZed&#x7684;Linux&#x79FB;&#x690D;/16.png" alt><br><img src="/2016/10/10/T-MicroZed&#x7684;Linux&#x79FB;&#x690D;/17.png" alt></li>
+<li>&#x6D4B;&#x8BD5;&#x7F51;&#x7EDC;&#x662F;&#x5426;&#x901A;&#x7545;<br><img src="/2016/10/10/T-MicroZed&#x7684;Linux&#x79FB;&#x690D;/18.png" alt><br><img src="/2016/10/10/T-MicroZed&#x7684;Linux&#x79FB;&#x690D;/19.png" alt></li>
+</ul>
+<h3 id="&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;Linux&#x5E94;&#x7528;"><a href="#&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;Linux&#x5E94;&#x7528;" class="headerlink" title="&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;Linux&#x5E94;&#x7528;"></a>&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;Linux&#x5E94;&#x7528;</h3><p><img src="/2016/10/10/T-MicroZed&#x7684;Linux&#x79FB;&#x690D;/20.png" alt><br><img src="/2016/10/10/T-MicroZed&#x7684;Linux&#x79FB;&#x690D;/21.png" alt></p>
+<h3 id="&#x914D;&#x7F6E;&#x8FDC;&#x7A0B;&#x8C03;&#x8BD5;"><a href="#&#x914D;&#x7F6E;&#x8FDC;&#x7A0B;&#x8C03;&#x8BD5;" class="headerlink" title="&#x914D;&#x7F6E;&#x8FDC;&#x7A0B;&#x8C03;&#x8BD5;"></a>&#x914D;&#x7F6E;&#x8FDC;&#x7A0B;&#x8C03;&#x8BD5;</h3><p><img src="/2016/10/10/T-MicroZed&#x7684;Linux&#x79FB;&#x690D;/22.png" alt><br><img src="/2016/10/10/T-MicroZed&#x7684;Linux&#x79FB;&#x690D;/23.png" alt><br><img src="/2016/10/10/T-MicroZed&#x7684;Linux&#x79FB;&#x690D;/24.png" alt><br><img src="/2016/10/10/T-MicroZed&#x7684;Linux&#x79FB;&#x690D;/25.png" alt><br><img src="/2016/10/10/T-MicroZed&#x7684;Linux&#x79FB;&#x690D;/26.png" alt><br><img src="/2016/10/10/T-MicroZed&#x7684;Linux&#x79FB;&#x690D;/27.png" alt></p>
+<h3 id="&#x5F00;&#x59CB;&#x8FDC;&#x7A0B;&#x8C03;&#x8BD5;"><a href="#&#x5F00;&#x59CB;&#x8FDC;&#x7A0B;&#x8C03;&#x8BD5;" class="headerlink" title="&#x5F00;&#x59CB;&#x8FDC;&#x7A0B;&#x8C03;&#x8BD5;"></a>&#x5F00;&#x59CB;&#x8FDC;&#x7A0B;&#x8C03;&#x8BD5;</h3><p><img src="/2016/10/10/T-MicroZed&#x7684;Linux&#x79FB;&#x690D;/28.png" alt></p>
+<blockquote>
+<p>&#x53D1;&#x73B0;&#x7A0B;&#x5E8F;&#x4E0D;&#x80FD;&#x8FD0;&#x884C;,&#x901A;&#x8FC7;SDK&#x7684;&#x4EA4;&#x53C9;&#x7F16;&#x8BD1;&#x5DE5;&#x5177;&#x67E5;&#x770B;&#x53D1;&#x73B0;&#x7F3A;&#x5C11;&#x5E93;,&#x5982;&#x56FE;</p>
+</blockquote>
+<p><img src="/2016/10/10/T-MicroZed&#x7684;Linux&#x79FB;&#x690D;/29.png" alt></p>
+<blockquote>
+<p>&#x7531;&#x4E8E;&#x6CA1;&#x6709;&#x627E;&#x5230;&#x8FD9;&#x4E2A;&#x5E93;&#x6587;&#x4EF6;,&#x6362;&#x4E00;&#x4E2A;&#x4EA4;&#x53C9;&#x7F16;&#x8BD1;&#x5DE5;&#x5177;(&#x521A;&#x624D;&#x7528;&#x6765;&#x7F16;&#x8BD1;&#x5185;&#x6838;&#x7684;),&#x5728;ubuntu&#x4E0A;&#x7F16;&#x5199;helloword</p>
+</blockquote>
+<p><img src="/2016/10/10/T-MicroZed&#x7684;Linux&#x79FB;&#x690D;/30.png" alt></p>
+<blockquote>
+<p>&#x5C06;&#x751F;&#x6210;&#x7684;elf&#x6587;&#x4EF6;&#x62F7;&#x8D1D;&#x5230;u&#x76D8;,u&#x76D8;&#x63D2;&#x5230;&#x5F00;&#x53D1;&#x677F;&#x4E0A;,&#x6302;&#x8F7D;&#x8FD0;&#x884C;&#x3002;</p>
+</blockquote>
+<p><img src="/2016/10/10/T-MicroZed&#x7684;Linux&#x79FB;&#x690D;/31.png" alt></p>
+<h3 id="Linux&#x73AF;&#x5883;&#x642D;&#x5EFA;&#x5B8C;&#x4E86;-&#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x662F;&#x9A71;&#x52A8;&#x7684;&#x7F16;&#x5199;&#x4E86;&#x3002;"><a href="#Linux&#x73AF;&#x5883;&#x642D;&#x5EFA;&#x5B8C;&#x4E86;-&#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x662F;&#x9A71;&#x52A8;&#x7684;&#x7F16;&#x5199;&#x4E86;&#x3002;" class="headerlink" title="Linux&#x73AF;&#x5883;&#x642D;&#x5EFA;&#x5B8C;&#x4E86;,&#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x662F;&#x9A71;&#x52A8;&#x7684;&#x7F16;&#x5199;&#x4E86;&#x3002;"></a>Linux&#x73AF;&#x5883;&#x642D;&#x5EFA;&#x5B8C;&#x4E86;,&#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x662F;&#x9A71;&#x52A8;&#x7684;&#x7F16;&#x5199;&#x4E86;&#x3002;</h3>
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://fengjinyuan.github.io/2016/10/10/T-MicroZed的Linux移植/" title="[T]MicroZed的Linux移植" target="_blank" rel="external">http://fengjinyuan.github.io/2016/10/10/T-MicroZed的Linux移植/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/fengjinyuan" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt>
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/fengjinyuan" target="_blank"><span class="text-dark">CVNovice</span><small class="ml-1x">Master of Software Engineering</small></a></h3>
+        <div>Like Embedded System, Like Computer Vision</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      </div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2016/12/02/T-hadoop2-7-3-集群搭建/" title="[T]hadoop2.7.3 集群搭建(Ubuntu)"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2016/10/07/T-MicroZed使用记录/" title="[T]MicroZed使用记录"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.jpg" alt="Scan Qrcode" title="Scan">
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="Scan Qrcode" title="Scan">
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class>
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/fengjinyuan" target="_blank" title="Github" data-toggle="tooltip" data-placement="top"><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle="tooltip" data-placement="top"><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+    <script defer>
+    var disqus_config = function () {
+        
+            this.page.url = 'http://fengjinyuan.github.io/2016/10/10/T-MicroZed的Linux移植/';
+        
+        this.page.identifier = 'T-MicroZed的Linux移植';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'null' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>
