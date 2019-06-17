@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000">
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top">
+  
+  
+  <title>[T]Costomizing Linux Kernel With Yocto | CVNovice</title>
+  <meta name="description" content="Linux Kernel Yocto">
+<meta name="keywords" content="Linux Kernel Yocto">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[T]Costomizing Linux Kernel With Yocto">
+<meta property="og:url" content="http://fengjinyuan.github.io/2019/06/17/T-Costomizing-Linux-Kernel-With-Yocto/index.html">
+<meta property="og:site_name" content="嵌入式小白|blog">
+<meta property="og:description" content="Linux Kernel Yocto">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-06-17T08:11:23.352Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[T]Costomizing Linux Kernel With Yocto">
+<meta name="twitter:description" content="Linux Kernel Yocto">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://fengjinyuan.github.io/2019/06/17/T-Costomizing-Linux-Kernel-With-Yocto/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="嵌入式小白|blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+  
+  
+</head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/fengjinyuan" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">CVNovice</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Master of Software Engineering</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Chongqing, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search">
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech>
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/fengjinyuan" target="_blank" title="Github" data-toggle="tooltip" data-placement="top"><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle="tooltip" data-placement="top"><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Research/">Research</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂文/">杂文</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/资源/">资源</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Research/">Research</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术/">技术</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂文/">杂文</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源/">资源</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Research/" style="font-size: 13.5px;">Research</a> <a href="/tags/技术/" style="font-size: 14px;">技术</a> <a href="/tags/杂文/" style="font-size: 13px;">杂文</a> <a href="/tags/资源/" style="font-size: 13px;">资源</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled ">
+        
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2019/06/17/T-Build-Linux-Image-towards-Intel-Galileo/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/技术/">技术</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/06/17/T-Build-Linux-Image-towards-Intel-Galileo/" class="title">[T]Build Linux Image towards Intel Galileo</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-06-17T08:09:35.000Z" itemprop="datePublished">2019-06-17</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2019/06/17/T-Costomizing-Linux-Kernel-With-Yocto/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/技术/">技术</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/06/17/T-Costomizing-Linux-Kernel-With-Yocto/" class="title">[T]Costomizing Linux Kernel With Yocto</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-06-17T08:07:51.000Z" itemprop="datePublished">2019-06-17</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2019/05/16/R-quaternion-formula/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Research/">Research</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/05/16/R-quaternion-formula/" class="title">[R] quaternion formula</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-05-16T14:12:35.000Z" itemprop="datePublished">2019-05-16</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2019/05/16/R-Rodrigues-Formula/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Research/">Research</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/05/16/R-Rodrigues-Formula/" class="title">[R] Rodrigues Formula</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-05-16T14:06:54.000Z" itemprop="datePublished">2019-05-16</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2019/04/09/T-Build-DL-based-on-Docker/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Research/">Research</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/04/09/T-Build-DL-based-on-Docker/" class="title">[T]基于Docker的DeepLearning平台</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-04-09T12:35:41.000Z" itemprop="datePublished">2019-04-09</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-T-Costomizing-Linux-Kernel-With-Yocto" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      [T]Costomizing Linux Kernel With Yocto
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2019/06/17/T-Costomizing-Linux-Kernel-With-Yocto/" class="article-date">
+	  <time datetime="2019-06-17T08:07:51.000Z" itemprop="datePublished">2019-06-17</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/技术/">技术</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/技术/">技术</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/06/17/T-Costomizing-Linux-Kernel-With-Yocto/#comments" class="article-comment-link">Comments</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1.7k(words)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 10(minutes)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="Customizing-Linux-Kernel-with-Yocto"><a href="#Customizing-Linux-Kernel-with-Yocto" class="headerlink" title="Customizing Linux Kernel with Yocto"></a>Customizing Linux Kernel with Yocto</h1><blockquote>
+<p>&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x4E3B;&#x8981;&#x5B66;&#x4E60;&#x5982;&#x4F55;&#x4F7F;&#x7528;Yocto&#x6765;&#x5B9A;&#x5236;&#x81EA;&#x5DF1;&#x7684;Linux&#x5185;&#x6838;&#xFF0C;&#x901A;&#x8FC7;&#x5B8C;&#x6210;<code>Hands on Kernel Lab</code>&#x4E2D;&#x7684;&#x5B9E;&#x9A8C;&#x5230;&#x8FBE;&#x5B66;&#x4E60;&#x76EE;&#x7684;&#x3002;&#x4E0B;&#x9762;&#x4E3B;&#x8981;&#x9610;&#x8FF0;&#x4E66;&#x4E2D;&#x7684;<em>LAB(1)</em> &#x5B9E;&#x9A8C;&#x3002;</p>
+</blockquote>
+<h2 id="&#x6CE8;&#x610F;&#x4E8B;&#x9879;"><a href="#&#x6CE8;&#x610F;&#x4E8B;&#x9879;" class="headerlink" title="&#x6CE8;&#x610F;&#x4E8B;&#x9879;"></a>&#x6CE8;&#x610F;&#x4E8B;&#x9879;</h2><blockquote>
+<ul>
+<li>Linux&#x5185;&#x6838;&#x7F16;&#x8BD1;&#x4E3B;&#x673A;(Host Machine)<strong>&#x73AF;&#x5883;&#x5F88;&#x91CD;&#x8981;</strong>&#xFF01; </li>
+<li>Linux&#x5185;&#x6838;&#x7F16;&#x8BD1;<strong>&#x7FFB;&#x5899;&#x5F88;&#x91CD;&#x8981;</strong>&#xFF01;</li>
+<li>Linux&#x5185;&#x6838;&#x7F16;&#x8BD1;<strong>&#x8F6F;&#x4EF6;&#x5E93;&#x4F9D;&#x8D56;&#x5F88;&#x91CD;&#x8981;</strong>&#xFF01;</li>
+</ul>
+</blockquote>
+<h2 id="LAB-1"><a href="#LAB-1" class="headerlink" title="LAB(1)"></a>LAB(1)</h2><h4 id="&#x73AF;&#x5883;&#x63CF;&#x8FF0;"><a href="#&#x73AF;&#x5883;&#x63CF;&#x8FF0;" class="headerlink" title="&#x73AF;&#x5883;&#x63CF;&#x8FF0;"></a>&#x73AF;&#x5883;&#x63CF;&#x8FF0;</h4><p>&#x7531;&#x4E8E;Linux&#x5185;&#x6838;&#x7F16;&#x8BD1;&#x5BF9;&#x4E3B;&#x673A;&#x73AF;&#x5883;&#x8981;&#x6C42;&#x5F88;&#x9AD8;&#xFF0C;&#x6240;&#x4EE5;&#x6700;&#x597D;&#x4E25;&#x683C;&#x6EE1;&#x8DB3;&#x7F16;&#x8BD1;&#x73AF;&#x5883;&#x7684;&#x9700;&#x6C42;&#x3002;&#x5C24;&#x5176;&#x5BF9;&#x4E8E;&#x4E3B;&#x673A;&#x7684;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7248;&#x672C;&#x3002;</p>
+<blockquote>
+<ul>
+<li>&#x4E3B;&#x673A;&#x7CFB;&#x7EDF;: Ubuntu 12.04</li>
+</ul>
+</blockquote>
+<h4 id="&#x5B9E;&#x9A8C;&#x51C6;&#x5907;"><a href="#&#x5B9E;&#x9A8C;&#x51C6;&#x5907;" class="headerlink" title="&#x5B9E;&#x9A8C;&#x51C6;&#x5907;"></a>&#x5B9E;&#x9A8C;&#x51C6;&#x5907;</h4><ul>
+<li><p>&#x7CFB;&#x7EDF;&#x51C6;&#x5907;<br>&#x7531;&#x4E8E;Linux&#x5185;&#x6838;&#x7F16;&#x8BD1;&#x4F9D;&#x8D56;&#x4E3B;&#x673A;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x53D1;&#x884C;&#x7248;&#x672C;&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x5B89;&#x88C5;&#x5BF9;&#x5E94;&#x7684;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7248;&#x672C;&#x3002;&#x4E0D;&#x53EF;&#x80FD;&#x6BCF;&#x6B21;&#x4E3A;&#x4E86;&#x7F16;&#x8BD1;&#x5185;&#x6838;&#x91CD;&#x65B0;&#x5B89;&#x88C5;&#x4E00;&#x904D;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x5229;&#x7528;Docker&#x6784;&#x5EFA;&#x4E3B;&#x673A;&#x7684;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x73AF;&#x5883;&#x3002;&#x6211;&#x4EEC;&#x9996;&#x5148;&#x9700;&#x8981;&#x5B89;&#x88C5;Docker&#xFF0C;&#x8FD9;&#x91CC;&#x4E0D;&#x518D;&#x5BF9;Docker&#x73AF;&#x5883;&#x642D;&#x5EFA;&#x8FDB;&#x884C;&#x53D9;&#x8FF0;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5B98;&#x65B9;&#x6587;&#x6863;&#x5B8C;&#x6210;&#x3002;<a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/" target="_blank" rel="noopener">Docker Install</a> &#x3002;&#x6211;&#x4EEC;&#x901A;&#x8FC7;Docker&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;Ubuntu12.04 &#x7684;&#x5BB9;&#x5668;(Container),&#x64CD;&#x4F5C;&#x8FC7;&#x7A0B;&#x5982;&#x4E0B;:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#&#x83B7;&#x53D6;Ubuntu 12.04 &#x955C;&#x50CF;</span></span><br><span class="line">[Host] docker pull ubuntu:12.04 </span><br><span class="line"><span class="comment">#&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5BB9;&#x5668;&#xFF0C;/your/workdir/docker/&#x662F;&#x4F60;&#x672C;&#x673A;&#x7684;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#xFF0C;/workdir&#x662F;&#x5BB9;&#x5668;&#x91CC;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#xFF0C;&#x540C;&#x65F6;&#x5EFA;&#x7ACB;50000(&#x672C;&#x673A;):5900(&#x5BB9;&#x5668;)&#x7684;&#x7AEF;&#x53E3;&#x6620;&#x5C04;</span></span><br><span class="line">[Host] docker run -it -v /your/workdir/docker/:/workdir -p 50000:5900 ubuntu:12.04</span><br><span class="line"><span class="comment">#&#x5F00;&#x542F;&#x5BB9;&#x5668;</span></span><br><span class="line">[Host] docker start -i container_id</span><br><span class="line"><span class="comment">#&#x66F4;&#x65B0;&#x5BB9;&#x5668;&#x8F6F;&#x4EF6;&#x5E93;</span></span><br><span class="line">[container] apt-get update</span><br><span class="line"><span class="comment">#&#x66F4;&#x6539;root&#x5BC6;&#x7801;</span></span><br><span class="line">[container] passwd root</span><br><span class="line"><span class="comment">#&#x5EFA;&#x7ACB;&#x666E;&#x901A;&#x7528;&#x6237;</span></span><br><span class="line">[container] useradd -d /home/xxx -s /bin/bash -p ***** xxx</span><br><span class="line">[container] apt-get install sudo</span><br><span class="line"><span class="comment">#&#x8D4B;&#x4E88;&#x666E;&#x901A;&#x7528;&#x6237;&#x8D85;&#x7EA7;&#x6743;&#x9650;</span></span><br><span class="line">[container] usermod -aG sudo xxx (or vim /etc/sudoer)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x4EE3;&#x7406;&#x914D;&#x7F6E;<br>&#x7531;&#x4E8E;&#x7F16;&#x8BD1;&#x5185;&#x6838;&#x8FC7;&#x7A0B;&#x4E2D;&#x9700;&#x8981;&#x8BB8;&#x591A;&#x7684;&#x8F6F;&#x4EF6;&#x5E93;&#x4F9D;&#x8D56;&#xFF0C;&#x8FD9;&#x4E9B;&#x4F9D;&#x8D56;&#x9700;&#x8981;&#x4E0B;&#x8F7D;&#xFF0C;&#x5BF9;&#x4E8E;&#x56FD;&#x5185;&#x7528;&#x6237;&#x6765;&#x8BF4;&#x8FD9;&#x4E9B;&#x4E0B;&#x8F7D;&#x975E;&#x5E38;&#x6162;&#xFF0C;&#x6216;&#x8005;&#x6839;&#x672C;&#x65E0;&#x6CD5;&#x4E0B;&#x8F7D;&#x3002;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x9700;&#x8981;<code>&#x7FFB;&#x5899;(&#x914D;&#x7F6E;&#x4EE3;&#x7406;&#xFF09;</code> &#xFF0C;&#x4E0B;&#x9762;&#x4E3B;&#x8981;&#x8BB2;&#x8FF0;&#x5982;&#x4F55;&#x914D;&#x7F6E;Git&#x4EE3;&#x7406;&#xFF0C;Docker&#x4EE3;&#x7406;&#x3002;<br>1.Git&#x4EE3;&#x7406;&#x914D;&#x7F6E;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># &#x914D;&#x7F6E; http://&#x534F;&#x8BAE;&#x7684;&#x4EE3;&#x7406;  (PS: Git &#x652F;&#x6301;http:// &#x548C;git:// &#x548C; ssh://)</span></span><br><span class="line">git config --global http.proxy <span class="string">&apos;http://your_proxy_ip:port&apos;</span> e.g <span class="string">&apos;http://127.0.0.1:8080&apos;</span></span><br><span class="line">git config --global https.proxy <span class="string">&apos;http://your_proxy_ip:port&apos;</span> e.g <span class="string">&apos;http://127.0.0.1:8080&apos;</span></span><br><span class="line">git config --global socks5.proxy <span class="string">&apos;socks5://your_proxy_ip:port&apos;</span> e.g <span class="string">&apos;socks5://127.0.0.1:8080&apos;</span></span><br><span class="line"><span class="comment"># &#x53D6;&#x6D88; http://&#x534F;&#x8BAE;&#x7684;&#x4EE3;&#x7406;</span></span><br><span class="line">git config --global --<span class="built_in">unset</span> http.proxy</span><br><span class="line">git config --global --<span class="built_in">unset</span> https.proxy</span><br><span class="line">git config --global --<span class="built_in">unset</span> socks5.proxy</span><br><span class="line"><span class="comment"># &#x67E5;&#x770B; &#x914D;&#x7F6E;</span></span><br><span class="line">git config --list</span><br><span class="line"><span class="comment"># &#x914D;&#x7F6E; git:// &#x534F;&#x8BAE;&#x4EE3;&#x7406;</span></span><br><span class="line">&#x53C2;&#x8003;&#x94FE;&#x63A5;&#x5982;&#x4E0B;:[Yocto Git Proxy](https://wiki.yoctoproject.org/wiki/Working_Behind_a_Network_Proxy)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>2.Docker&#x4EE3;&#x7406;&#x914D;&#x7F6E;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># &#x521B;&#x5EFA;Docker&#x4EE3;&#x7406;&#x6587;&#x4EF6;</span></span><br><span class="line">[Host] <span class="built_in">cd</span> etc/systemd/system/docker.service.d</span><br><span class="line">[Host] vim http-proxy.conf</span><br><span class="line"><span class="comment"># &#x6DFB;&#x52A0;&#x5982;&#x4E0B;&#x5185;&#x5BB9;:</span></span><br><span class="line">[Service]</span><br><span class="line">Environment=<span class="string">&quot;HTTP_PROXY=http://your_proxy_ip:port/&quot;</span>   e.g <span class="string">&apos;http://127.0.0.1:8080&apos;</span></span><br><span class="line">Environment=<span class="string">&quot;HTTPS_PROXY=http://your_proxy_ip:port/&quot;</span>  e.g <span class="string">&apos;http://127.0.0.1:8080&apos;</span></span><br><span class="line">Environment=<span class="string">&quot;NO_PROXY=localhost,127.0.0.1&quot;</span></span><br><span class="line"><span class="comment"># &#x91CD;&#x542F;Daemon</span></span><br><span class="line">[Host] systemctl  daemon-reload</span><br><span class="line"><span class="comment"># &#x91CD;&#x542F;Docker</span></span><br><span class="line">[Host] systemctl restart docker</span><br><span class="line"><span class="comment"># &#x9A8C;&#x8BC1;&#x914D;&#x7F6E;</span></span><br><span class="line">[Host] systemctl show docker --property Environment</span><br></pre></td></tr></table></figure></p>
+<h4 id="&#x5B9E;&#x9A8C;&#x8FC7;&#x7A0B;"><a href="#&#x5B9E;&#x9A8C;&#x8FC7;&#x7A0B;" class="headerlink" title="&#x5B9E;&#x9A8C;&#x8FC7;&#x7A0B;"></a>&#x5B9E;&#x9A8C;&#x8FC7;&#x7A0B;</h4><p>1.&#x5B89;&#x88C5;Yocto&#x5FC5;&#x8981;&#x7684;&#x8F6F;&#x4EF6;&#x5E93; <code>( &#x5728;&#x5BB9;&#x5668;&#x5B8C;&#x6210;&#xFF09;</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[host] docker start -i container_id</span><br><span class="line">[container] su root</span><br><span class="line">[container] apt-get install gawk wget git-core diffstat unzip texinfo build-essential chrpath libsdl1.2-dev xterm screen</span><br></pre></td></tr></table></figure></p>
+<p>2.git clone Yocto&#x73AF;&#x5883;<br>&#x4E3A;&#x4E86;&#x9632;&#x6B62;Docker&#x91CC;&#x7684;&#x7F51;&#x7EDC;&#x4E0D;&#x7A33;&#x5B9A;&#xFF0C;&#x6211;&#x4EEC;&#x80FD;&#x5728;&#x672C;&#x673A;&#x4E0B;&#x5B8C;&#x6210;&#x7684; &#x64CD;&#x4F5C;&#x6216;&#x4E0B;&#x8F7D; &#x90FD;&#x5C3D;&#x53EF;&#x80FD;&#x5728;&#x672C;&#x673A;&#x5B8C;&#x6210;&#x3002;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># &#x8FDB;&#x5165;&#x672C;&#x673A;&#x4E0E;&#x5BB9;&#x5668;&#x6620;&#x5C04;&#x7684;&#x76EE;&#x5F55;</span></span><br><span class="line">[host] <span class="built_in">cd</span> /your/workdir/docker</span><br><span class="line">[host] git <span class="built_in">clone</span> git://git.yoctoproject.org/poky.git poky-danny-8.0.1</span><br><span class="line">[host] <span class="built_in">cd</span> poky-danny-8.0.1</span><br><span class="line">[host] git checkout -b danny remotes/origin/danny</span><br><span class="line"><span class="comment"># &#x4E0B;&#x8F7D;&#x5B9E;&#x9A8C;&#x5305;&#x5230; poky-danny-8.0.1 &#x76EE;&#x5F55;&#x4E0B;</span></span><br><span class="line">&#x4F60;&#x80FD;&#x5728;&#x8FD9;&#x4E2A;&#x94FE;&#x63A5;&#x91CC;&#x627E;&#x5230; elc-2013-layers.tar.bz2    Link: https://github.com/doothings/Yocto-101</span><br><span class="line"><span class="comment"># &#x89E3;&#x538B;elc-2013-layers.tar.bz2 </span></span><br><span class="line">[host] bunzip2 -c elc-2013-layers.tar.bz2 | tar xvf -</span><br></pre></td></tr></table></figure></p>
+<p>3.&#x5728;&#x5BB9;&#x5668;&#x6784;&#x5EFA;Linux&#x955C;&#x50CF;<br>&#x7136;&#x540E;&#x6211;&#x4EEC;&#x5F00;&#x59CB;&#x8FDB;&#x5165;&#x5BB9;&#x5668;&#x6784;&#x5EFA;Linux&#x5185;&#x6838;&#x3002;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x6CE8;&#x610F;&#x6240;&#x6709;&#x64CD;&#x4F5C;&#x4EE5;&#x666E;&#x901A;&#x7528;&#x6237;&#x5B8C;&#x6210;&#x3002;</span><br><span class="line"></span><br><span class="line">[container] <span class="built_in">cd</span> /wokdir/poky-danny-8.0.1</span><br><span class="line">[container] <span class="built_in">source</span> oe-init-build-env  <span class="comment"># &#x8BBE;&#x7F6E;yocto&#x73AF;&#x5883;&#x53D8;&#x91CF;</span></span><br><span class="line">[container] vim conf/local.conf</span><br><span class="line">&#x53D6;&#x6D88;&#x6CE8;&#x91CA;&#x4E00;&#x4E0B;&#x51E0;&#x884C;</span><br><span class="line">BB_NUMBER_THREADS = <span class="string">&quot;4&quot;</span></span><br><span class="line">PARALLEL_MAKE = <span class="string">&quot;-j 4&quot;</span></span><br><span class="line">&#x5728; MACHINE ??= &#x201C;qemux86&#x201D;&#x4E0A;&#x9762;&#x6DFB;&#x52A0;&#x4E00;&#x884C; MACHINE ?= <span class="string">&quot;lab1-qemux86&quot;</span></span><br><span class="line">[container] vim conf/bblayers.conf</span><br><span class="line">&#x6DFB;&#x52A0;&#x4E00;&#x884C;&#x5185;&#x5BB9;&#x5982;&#x4E0B;:</span><br><span class="line">/workdir/poky-danny-8.0.1/meta-lab1-qemux86 \</span><br><span class="line"><span class="comment"># &#x6784;&#x5EFA;Linux&#x955C;&#x50CF; &#xFF0C;&#x8FD9;&#x4E00;&#x8FC7;&#x7A0B;&#x975E;&#x5E38;&#x6F2B;&#x957F;&#xFF0C;&#x4F46;&#x662F;&#x7531;&#x4E8E;&#x914D;&#x7F6E;&#x4E86;&#x4EE3;&#x7406;&#x8FD8;&#x662F;&#x5F88;&#x5FEB;&#x7684;</span></span><br><span class="line">[container] bitbake core-image-minimal</span><br></pre></td></tr></table></figure>
+<p>&#x5F53;&#x5185;&#x6838;&#x7F16;&#x8BD1;&#x6210;&#x529F;&#x5E76;&#x6210;&#x529F;&#x751F;&#x6210;&#x955C;&#x50CF;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;qemu&#x6765;&#x6A21;&#x62DF;&#x8FD0;&#x884C;&#x6211;&#x4EEC;&#x7684;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4E86;&#x3002;<br>4.Qemu&#x8FD0;&#x884C;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;<br>&#x7531;&#x4E8E;Docker &#x5BB9;&#x5668;&#x662F;&#x6587;&#x5B57;&#x7EC8;&#x7AEF;&#x4E0D;&#x80FD;&#x663E;&#x793A;&#x56FE;&#x5F62;&#x5316;&#x7A0B;&#x5E8F;&#xFF0C;&#x6545;&#x6211;&#x4EEC;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x5728;&#x5BB9;&#x5668;&#x8FD0;&#x884C;Qemu&#x3002;&#x8FD9;&#x91CC;&#x6709;&#x4E24;&#x4E2A;&#x89E3;&#x51B3;&#x529E;&#x6CD5;&#xFF1A;<br>1&#xFF09;&#x5728;&#x5BB9;&#x5668;&#x91CC;&#x5B89;&#x88C5;&#x56FE;&#x5F62;&#x754C;&#x9762;&#x670D;&#x52A1;&#xFF0C;&#x5EFA;&#x7ACB;VNCServer&#x3002;&#x7136;&#x540E;&#x5728;&#x4E3B;&#x673A;&#x4F7F;&#x7528;VNCClient&#x94FE;&#x63A5;&#x5BB9;&#x5668;&#x3002;&#x8FD9;&#x91CC;&#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x56FE;&#x5F62;&#x754C;&#x9762;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x4F7F;&#x7528;&#x5BB9;&#x5668;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x8FD0;&#x884C;Qemu&#x3002;<br>2&#xFF09;&#x66F4;&#x6539;Yocto&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x672C;&#x673A;&#xFF08;Host&#xFF09;&#x76F4;&#x63A5;&#x8FD0;&#x884C;Qemu&#x3002;&#x6211;&#x4EEC;&#x4E3B;&#x8981;&#x4F7F;&#x7528;&#x7B2C;&#x4E8C;&#x79CD;&#x65B9;&#x6CD5;&#x3002;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[host] gedit /your/workdir/docker/poky-danny-8.0.1/build/conf/bblayers.conf</span><br><span class="line">&#x66F4;&#x6539;&#x5176;&#x4E2D;&#x7684;&#x8DEF;&#x5F84;&#x4E3A;&#x672C;&#x673A;&#x7684;&#x8DEF;&#x5F84;&#xFF1A;</span><br><span class="line">/workdir/xxxxx   -&gt;  /your/workdir/docker/xxxxx</span><br><span class="line">[host] gedit /your/workdir/docker/poky-danny-8.0.1/build/conf/sanity_info.conf</span><br><span class="line">&#x66F4;&#x6539;&#x5176;&#x4E2D;&#x7684;&#x8DEF;&#x5F84;&#x4E3A;&#x672C;&#x673A;&#x7684;&#x8DEF;&#x5F84;&#xFF1A;</span><br><span class="line">/workdir/xxxxx   -&gt;  /your/workdir/docker/xxxxx</span><br><span class="line">[host] gedit /your/workdir/docker/poky-danny-8.0.1/build/tmp/saved_tmpdir</span><br><span class="line">&#x66F4;&#x6539;&#x5176;&#x4E2D;&#x7684;&#x8DEF;&#x5F84;&#x4E3A;&#x672C;&#x673A;&#x7684;&#x8DEF;&#x5F84;&#xFF1A;</span><br><span class="line">/workdir/xxxxx   -&gt;  /your/workdir/docker/xxxxx</span><br><span class="line">[host] <span class="built_in">cd</span> /your/workdir/docker/poky-danny-8.0.1/</span><br><span class="line">[host] <span class="built_in">source</span> oe-init-build-env <span class="comment"># &#x8BBE;&#x7F6E;&#x5728;&#x672C;&#x673A;&#x7684;Yocto&#x73AF;&#x5883;&#x53D8;&#x91CF;</span></span><br><span class="line">[host] runqemu tmp/deploy/images/bzImage-lab1-qemux86.bin tmp/deploy/images/core-</span><br><span class="line">image-minimal-lab1-qemux86.ext3</span><br><span class="line"></span><br><span class="line">&#x6700;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6210;&#x529F;&#x8FD0;&#x884C;Qemu</span><br></pre></td></tr></table></figure></p>
+<p>5.&#x5B9A;&#x5236;&#x5185;&#x6838;<br>&#x6709;&#x4E86;&#x524D;&#x9762;&#x7684;&#x57FA;&#x7840;&#xFF0C;&#x540E;&#x9762;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x5B9A;&#x5236;&#x81EA;&#x5DF1;&#x7684;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#xFF0C;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#xFF0C;&#x88C1;&#x526A;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x3002;&#x8FD9;&#x4E00;&#x90E8;&#x5206;&#x4E3B;&#x8981;&#x5728;&#x5BB9;&#x5668;&#x91CC;&#x5B8C;&#x6210;&#x3002;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#x6CE8;&#x610F;&#x524D;&#x9762;&#x4E3A;&#x4E86;&#x5728;&#x672C;&#x673A;&#x8FD0;&#x884C;qemu&#x6211;&#x4EEC;&#x6539;&#x52A8;&#x4E86;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x5728;&#x5BB9;&#x5668;&#x4E0B;&#x64CD;&#x4F5C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5C06;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x6539;&#x52A8;&#x56DE;&#x6765;</span><br><span class="line"></span><br><span class="line"><span class="comment"># &#x5B9A;&#x5236;&#x5185;&#x6838;</span></span><br><span class="line">[container] su xxxx  <span class="comment">#&#x666E;&#x901A;&#x7528;&#x6237;&#x8FD0;&#x884C;</span></span><br><span class="line">[container] <span class="built_in">cd</span> /workdir/poky-danny-8.0.1/</span><br><span class="line">[container] <span class="built_in">source</span> oe-init-build-env</span><br><span class="line">[container] script /dev/null</span><br><span class="line">[container] reset</span><br><span class="line">[container] bitbake linux -c menuconfig   <span class="comment"># &#x5C31;&#x53EF;&#x4EE5;&#x914D;&#x7F6E;Linux&#x5185;&#x6838;&#x6765;&#x8FBE;&#x5230;&#x5B9A;&#x5236;&#x7684;&#x76EE;&#x7684;&#x4E86;</span></span><br><span class="line">&#x4F1A;&#x4EA7;&#x751F;.config&#x6587;&#x4EF6;&#xFF0C;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x4E86;Linux&#x5185;&#x6838;&#x7684;&#x914D;&#x7F6E;&#x60C5;&#x51B5;</span><br><span class="line">[container] bitbake linux -c deploy</span><br><span class="line"></span><br><span class="line">&#x7136;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x7528;Qemu&#x6765;&#x9A8C;&#x8BC1;&#x4FEE;&#x6539;&#x7684;Linux&#x5185;&#x6838;</span><br></pre></td></tr></table></figure></p>
+<h4 id="&#x53C2;&#x8003;&#x8D44;&#x6599;"><a href="#&#x53C2;&#x8003;&#x8D44;&#x6599;" class="headerlink" title="&#x53C2;&#x8003;&#x8D44;&#x6599;"></a>&#x53C2;&#x8003;&#x8D44;&#x6599;</h4><ol>
+<li><a href="http://www.yoctoproject.org/docs/latest/kernel-dev/kernel-dev.html" target="_blank" rel="noopener">Yocto_Kernel_Dev</a> </li>
+<li><a href="http://www.yoctoproject.org/docs/1.3/yocto-project-qs/yocto-project-qs.html" target="_blank" rel="noopener">Yocto_Project</a> </li>
+<li><a href="https://www.thegeekdiary.com/how-to-configure-docker-to-use-proxy/" target="_blank" rel="noopener">Docker_Proxy</a> </li>
+<li><a href="https://github.com/doothings/Yocto-101" target="_blank" rel="noopener">elc-2013-layers</a> </li>
+<li><a href="https://wiki.yoctoproject.org/wiki/Working_Behind_a_Network_Proxy" target="_blank" rel="noopener">Yocto_Git_Proxy</a> </li>
+</ol>
+<p>PS: <em>&#x4EE5;&#x4E0A;&#x94FE;&#x63A5;&#x9700;&#x8981;&#x7FFB;&#x5899;&#x8BBF;&#x95EE;&#xFF01;</em></p>
+<p>&#x6B22;&#x8FCE;&#x6307;&#x51FA;&#x9519;&#x8BEF;&#x548C;&#x8BA8;&#x8BBA;&#xFF0C;&#x8054;&#x7CFB;&#x65B9;&#x5F0F;: <a href="mailto:fengjinyuan@outlook.com" target="_blank" rel="noopener">fengjinyuan@outlook.com</a></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://fengjinyuan.github.io/2019/06/17/T-Costomizing-Linux-Kernel-With-Yocto/" title="[T]Costomizing Linux Kernel With Yocto" target="_blank" rel="external">http://fengjinyuan.github.io/2019/06/17/T-Costomizing-Linux-Kernel-With-Yocto/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/fengjinyuan" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt>
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/fengjinyuan" target="_blank"><span class="text-dark">CVNovice</span><small class="ml-1x">Master of Software Engineering</small></a></h3>
+        <div>Like Embedded System, Like Computer Vision</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      </div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2019/06/17/T-Build-Linux-Image-towards-Intel-Galileo/" title="[T]Build Linux Image towards Intel Galileo"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2019/05/16/R-quaternion-formula/" title="[R] quaternion formula"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.jpg" alt="Scan Qrcode" title="Scan">
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="Scan Qrcode" title="Scan">
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class>
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/fengjinyuan" target="_blank" title="Github" data-toggle="tooltip" data-placement="top"><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle="tooltip" data-placement="top"><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+    <script defer>
+    var disqus_config = function () {
+        
+            this.page.url = 'http://fengjinyuan.github.io/2019/06/17/T-Costomizing-Linux-Kernel-With-Yocto/';
+        
+        this.page.identifier = 'T-Costomizing-Linux-Kernel-With-Yocto';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'null' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

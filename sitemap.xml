@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://fengjinyuan.github.io/2019/06/17/T-Build-Linux-Image-towards-Intel-Galileo/</loc>
+    
+    <lastmod>2019-06-17T08:12:08.043Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fengjinyuan.github.io/2019/06/17/T-Costomizing-Linux-Kernel-With-Yocto/</loc>
+    
+    <lastmod>2019-06-17T08:11:23.352Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://fengjinyuan.github.io/2016/06/03/T-%E7%AE%80%E5%8D%95%E7%89%A9%E8%81%94%E7%BD%91%E7%BB%84%E5%BB%BA/</loc>
     
     <lastmod>2019-06-06T12:15:30.704Z</lastmod>
@@ -135,21 +149,7 @@
   </url>
   
   <url>
-    <loc>http://fengjinyuan.github.io/categories/index.html</loc>
-    
-    <lastmod>2019-04-15T06:37:45.931Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://fengjinyuan.github.io/links/index.html</loc>
-    
-    <lastmod>2019-04-15T06:37:45.931Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://fengjinyuan.github.io/repository/index.html</loc>
+    <loc>http://fengjinyuan.github.io/tags/index.html</loc>
     
     <lastmod>2019-04-15T06:37:45.931Z</lastmod>
     
@@ -163,14 +163,28 @@
   </url>
   
   <url>
-    <loc>http://fengjinyuan.github.io/tags/index.html</loc>
+    <loc>http://fengjinyuan.github.io/about/index.html</loc>
     
     <lastmod>2019-04-15T06:37:45.931Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://fengjinyuan.github.io/about/index.html</loc>
+    <loc>http://fengjinyuan.github.io/links/index.html</loc>
+    
+    <lastmod>2019-04-15T06:37:45.931Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fengjinyuan.github.io/categories/index.html</loc>
+    
+    <lastmod>2019-04-15T06:37:45.931Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fengjinyuan.github.io/repository/index.html</loc>
     
     <lastmod>2019-04-15T06:37:45.931Z</lastmod>
     
