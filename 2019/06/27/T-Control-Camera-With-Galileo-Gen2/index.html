@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000">
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top">
+  
+  
+  <title>[T] Control Camera With Galileo Gen2 | CVNovice</title>
+  <meta name="description" content="USB Camera Galileo Gen2">
+<meta name="keywords" content="USB Camera Galileo Gen2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[T] Control Camera With Galileo Gen2">
+<meta property="og:url" content="http://fengjinyuan.github.io/2019/06/27/T-Control-Camera-With-Galileo-Gen2/index.html">
+<meta property="og:site_name" content="嵌入式小白|blog">
+<meta property="og:description" content="USB Camera Galileo Gen2">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://fengjinyuan.github.io/2019/06/27/T-Control-Camera-With-Galileo-Gen2/1.jpg">
+<meta property="og:image" content="http://fengjinyuan.github.io/2019/06/27/T-Control-Camera-With-Galileo-Gen2/2.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2019/06/27/T-Control-Camera-With-Galileo-Gen2/3.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2019/06/27/T-Control-Camera-With-Galileo-Gen2/4.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2019/06/27/T-Control-Camera-With-Galileo-Gen2/5.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2019/06/27/T-Control-Camera-With-Galileo-Gen2/6.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2019/06/27/T-Control-Camera-With-Galileo-Gen2/7.png">
+<meta property="og:image" content="http://fengjinyuan.github.io/2019/06/27/T-Control-Camera-With-Galileo-Gen2/8.jpg">
+<meta property="og:updated_time" content="2019-06-27T11:20:30.860Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[T] Control Camera With Galileo Gen2">
+<meta name="twitter:description" content="USB Camera Galileo Gen2">
+<meta name="twitter:image" content="http://fengjinyuan.github.io/2019/06/27/T-Control-Camera-With-Galileo-Gen2/1.jpg">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://fengjinyuan.github.io/2019/06/27/T-Control-Camera-With-Galileo-Gen2/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="嵌入式小白|blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+  
+  
+</head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/fengjinyuan" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">CVNovice</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Master of Software Engineering</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Chongqing, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search">
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech>
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/fengjinyuan" target="_blank" title="Github" data-toggle="tooltip" data-placement="top"><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle="tooltip" data-placement="top"><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Research/">Research</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂文/">杂文</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/资源/">资源</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Research/">Research</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术/">技术</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂文/">杂文</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源/">资源</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Research/" style="font-size: 13.5px;">Research</a> <a href="/tags/技术/" style="font-size: 14px;">技术</a> <a href="/tags/杂文/" style="font-size: 13px;">杂文</a> <a href="/tags/资源/" style="font-size: 13px;">资源</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled ">
+        
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2019/06/27/T-Control-Camera-With-Galileo-Gen2/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/技术/">技术</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/06/27/T-Control-Camera-With-Galileo-Gen2/" class="title">[T] Control Camera With Galileo Gen2</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-06-27T11:01:46.000Z" itemprop="datePublished">2019-06-27</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2019/06/17/T-Build-Linux-Image-towards-Intel-Galileo/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/技术/">技术</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/06/17/T-Build-Linux-Image-towards-Intel-Galileo/" class="title">[T]Build Linux Image towards Intel Galileo</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-06-17T08:09:35.000Z" itemprop="datePublished">2019-06-17</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2019/06/17/T-Costomizing-Linux-Kernel-With-Yocto/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/技术/">技术</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/06/17/T-Costomizing-Linux-Kernel-With-Yocto/" class="title">[T]Costomizing Linux Kernel With Yocto</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-06-17T08:07:51.000Z" itemprop="datePublished">2019-06-17</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2019/05/16/R-quaternion-formula/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Research/">Research</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/05/16/R-quaternion-formula/" class="title">[R] quaternion formula</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-05-16T14:12:35.000Z" itemprop="datePublished">2019-05-16</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2019/05/16/R-Rodrigues-Formula/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Research/">Research</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/05/16/R-Rodrigues-Formula/" class="title">[R] Rodrigues Formula</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-05-16T14:06:54.000Z" itemprop="datePublished">2019-05-16</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-T-Control-Camera-With-Galileo-Gen2" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      [T] Control Camera With Galileo Gen2
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2019/06/27/T-Control-Camera-With-Galileo-Gen2/" class="article-date">
+	  <time datetime="2019-06-27T11:01:46.000Z" itemprop="datePublished">2019-06-27</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/技术/">技术</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/技术/">技术</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/06/27/T-Control-Camera-With-Galileo-Gen2/#comments" class="article-comment-link">Comments</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1.4k(words)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 8(minutes)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="Control-Camera-With-Galileo-Gen-2"><a href="#Control-Camera-With-Galileo-Gen-2" class="headerlink" title="Control Camera With Galileo Gen 2"></a>Control Camera With Galileo Gen 2</h1><blockquote>
+<p>&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x4E3B;&#x8981;&#x4ECB;&#x7ECD;&#x4F7F;&#x7528;Galileo Gen2&#x6765;&#x63A7;&#x5236;&#x6444;&#x50CF;&#x5934;(USB Camera). &#x7B80;&#x5355;&#x7684;&#x8BF4;&#xFF0C;&#x5C31;&#x662F;&#x5728;Galileo Gen2 &#x4E0A;&#x4F7F;&#x7528;OpenCV&#x6765;&#x64CD;&#x4F5C;&#x6444;&#x50CF;&#x5934;&#x62CD;&#x7167;&#xFF0C;&#x8FD9;&#x4EC5;&#x4EC5;&#x662F;&#x4E00;&#x4E2A;Demo&#x3002;</p>
+</blockquote>
+<h2 id="&#x5F00;&#x53D1;&#x73AF;&#x5883;"><a href="#&#x5F00;&#x53D1;&#x73AF;&#x5883;" class="headerlink" title="&#x5F00;&#x53D1;&#x73AF;&#x5883;"></a>&#x5F00;&#x53D1;&#x73AF;&#x5883;</h2><blockquote>
+<p>&#x4E3B;&#x673A;&#x7CFB;&#x7EDF;(host)&#xFF1A;Ubuntu 16.04 Docker&#x955C;&#x50CF;&#xFF1A;Ubuntu 12.04</p>
+</blockquote>
+<h2 id="&#x4E3A;Galileo-Gen2-&#x51C6;&#x5907;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;"><a href="#&#x4E3A;Galileo-Gen2-&#x51C6;&#x5907;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;" class="headerlink" title="&#x4E3A;Galileo Gen2 &#x51C6;&#x5907;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;"></a>&#x4E3A;Galileo Gen2 &#x51C6;&#x5907;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;</h2><ol>
+<li><p>&#x7F16;&#x8BD1;Linux&#x7CFB;&#x7EDF;&#x955C;&#x50CF;<br>&#x9996;&#x5148;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4ECE;Github&#x4E0A;&#x4E0B;&#x8F7D;Galileo Gen2 BSP&#x6587;&#x4EF6;&#x3002;&#x5176;&#x4E0B;&#x8F7D;&#x5730;&#x5740;&#x5982;&#x4E0B;:<a href="https://github.com/yashaswini-hanji/Galileo-Runtime" target="_blank" rel="noopener">GalileoBSP</a> </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[host] <span class="built_in">cd</span> /your/workspace/  <span class="comment">#&#x8FDB;&#x5165;&#x5230;&#x4F60;&#x7684;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;</span></span><br><span class="line">[host] git <span class="built_in">clone</span> https://github.com/yashaswini-hanji/Galileo-Runtime</span><br><span class="line">[host] <span class="built_in">cd</span> ./Galileo-Runtime/meta-clanton/</span><br><span class="line">[host] ./setup.sh</span><br><span class="line"><span class="comment"># &#x8FDB;&#x5165;Dokcer &#x5BB9;&#x5668;&#x7F16;&#x8BD1;Linux&#x955C;&#x50CF;</span></span><br><span class="line"><span class="comment"># &#x8FD9;&#x91CC;&#x5047;&#x8BBE;&#x4F60;&#x7684;&#x4E3B;&#x673A;&#x76EE;&#x5F55;&#x4E0E;&#x5BB9;&#x5668;&#x76EE;&#x5F55; &#x5EFA;&#x7ACB;&#x5982;&#x4E0B;&#x6620;&#x5C04;&#x5173;&#x7CFB; /your/workspace/&#xFF1A;/workdir</span></span><br><span class="line">[host] docker start -i container_id <span class="comment">#&#x5F00;&#x542F;&#x5BB9;&#x5668;</span></span><br><span class="line">[container] <span class="built_in">cd</span> /workdir/Galileo-Runtime/meta-clanton</span><br><span class="line">[container] <span class="built_in">source</span> poky/oe-init-build-env yocto_build</span><br><span class="line">[container] bitbake image-full</span><br><span class="line"><span class="comment"># &#x7B49;&#x5F85;&#x7F16;&#x8BD1;&#x5B8C;&#x6210;</span></span><br><span class="line">[container] <span class="built_in">cd</span> ./tmp/deploy/images/  <span class="comment"># &#x5728;yocto_build&#x76EE;&#x5F55;&#x4E0B;&#x8FDB;&#x5165;</span></span><br><span class="line"><span class="comment"># &#x4F60;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x5982;&#x4E0B;&#x6587;&#x4EF6;</span></span><br><span class="line">* boot(&#x76EE;&#x5F55;&#xFF09;</span><br><span class="line">* grub.efi</span><br><span class="line">* bzImage--3.8-r0-clanton-&#x65E5;&#x671F;.bin</span><br><span class="line">* core-image-minimal-initramfs-clanton-&#x65E5;&#x671F;.rootfs.cpio.gz</span><br><span class="line">* image-full-clanton-&#x65E5;&#x671F;.rootfs.ext3</span><br><span class="line">* modules--3.8-r0-clanton-&#x65E5;&#x671F;.tgz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x5B89;&#x88C5;Linux&#x7CFB;&#x7EDF;&#x955C;&#x50CF;<br>1) &#x9996;&#x5148;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4E00;&#x5F20;&#x4E0D;&#x5927;&#x4E8E;32GB&#x7684;SD&#x5361;&#x3002;&#x7136;&#x540E;&#x683C;&#x5F0F;&#x5316;&#x4E3A;FAT&#xFF08;&#x6216;FAT32&#xFF09;&#x683C;&#x5F0F;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;Ubuntu &#x81EA;&#x5E26;&#x7684;Disks&#x5DE5;&#x5177;&#x5B8C;&#x6210;&#x3002;<br>2) &#x6211;&#x4EEC;&#x62F7;&#x8D1D;&#x5728; /your/workspace/Galileo-Runtime/meta-clanton/yocto_build/tmp/deploy/images/ &#x4E2D;&#x7684;&#x5982;&#x4E0B;&#x6587;&#x4EF6;&#xFF1A;</p>
+<blockquote>
+<ul>
+<li>boot(&#x76EE;&#x5F55;&#xFF09;</li>
+<li>grub.efi</li>
+<li>bzImage&#x2013;3.8-r0-clanton-&#x65E5;&#x671F;.bin</li>
+<li>core-image-minimal-initramfs-clanton-&#x65E5;&#x671F;.rootfs.cpio.gz</li>
+<li>image-full-clanton-&#x65E5;&#x671F;.rootfs.ext3</li>
+<li>modules&#x2013;3.8-r0-clanton-&#x65E5;&#x671F;.tgz</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<p>&#x5C06;&#x4E0A;&#x8FF0;&#x6587;&#x4EF6;&#x590D;&#x5236;&#x5230;SD&#x5361;&#x4E2D;&#xFF0C;&#x7136;&#x540E;&#x8FDB;&#x884C;&#x5982;&#x4E0B;&#x91CD;&#x547D;&#x540D;&#xFF1A;</p>
+<blockquote>
+<ul>
+<li>boot(&#x76EE;&#x5F55;&#xFF09;</li>
+<li>grub.efi</li>
+<li>bzImage&#x2013;3.8-r0-clanton-&#x65E5;&#x671F;.bin =&gt;  bzImage</li>
+<li>core-image-minimal-initramfs-clanton-&#x65E5;&#x671F;.rootfs.cpio.gz =&gt; core-image-minimal-initramfs-clanton.cpio.gz</li>
+<li>image-full-clanton-&#x65E5;&#x671F;.rootfs.ext3 =&gt;image-full-clanton.ext3</li>
+<li>modules&#x2013;3.8-r0-clanton-&#x65E5;&#x671F;.tgz =&gt;modules&#x2013;3.8-r0-clanton.tgz</li>
+</ul>
+</blockquote>
+<h2 id="&#x51C6;&#x5907;&#x4EA4;&#x53C9;&#x7F16;&#x8BD1;&#x5DE5;&#x5177;"><a href="#&#x51C6;&#x5907;&#x4EA4;&#x53C9;&#x7F16;&#x8BD1;&#x5DE5;&#x5177;" class="headerlink" title="&#x51C6;&#x5907;&#x4EA4;&#x53C9;&#x7F16;&#x8BD1;&#x5DE5;&#x5177;"></a>&#x51C6;&#x5907;&#x4EA4;&#x53C9;&#x7F16;&#x8BD1;&#x5DE5;&#x5177;</h2><p>&#x8FD9;&#x4E00;&#x6B65;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5728;Docker&#x4E2D;&#x6267;&#x884C;&#x5982;&#x4E0B;&#x6307;&#x4EE4;&#x5B8C;&#x6210;&#x3002;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[container] <span class="built_in">cd</span> /workdir/Galileo-Runtime/meta-clanton/</span><br><span class="line">[container] <span class="built_in">source</span> poky/oe-init-build-env yocto_build</span><br><span class="line">[container] bitbake image-full -c populate_sdk</span><br><span class="line"><span class="comment"># &#x8FD9;&#x65F6;&#x4F1A;&#x5728; yocto_build/tmp/deploy/sdk/ &#x76EE;&#x5F55;&#x4E0B;&#x4EA7;&#x751F;</span></span><br><span class="line">xxxx-toolchain-xxx.sh</span><br><span class="line">[container] sudo  ./xxxxx-toolchain-xxxx.sh</span><br><span class="line"><span class="comment"># &#x8FD9;&#x4F1A;&#x5C06;&#x5DE5;&#x5177;&#x5B89;&#x88C5;&#x5728; /opt/clanton-xxx/xxxx/ &#x76EE;&#x5F55;&#x4E0B;</span></span><br><span class="line">[container] <span class="built_in">cd</span>  /opt/clanton-xxx/xxxx/</span><br><span class="line">[container] <span class="built_in">source</span> ./environment-setup-i586-poky-linux-uclibc</span><br><span class="line">[container] <span class="built_in">echo</span> <span class="variable">$CC</span>  <span class="comment"># &#x7EC8;&#x7AEF;&#x663E;&#x793A;&#x5DE5;&#x5177;&#x7F16;&#x8BD1;&#x5668;&#x4FE1;&#x606F;&#x5219;&#x5B89;&#x88C5;&#x6210;&#x529F;</span></span><br></pre></td></tr></table></figure></p>
+<p>&#x8FD9;&#x91CC;&#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x6267;&#x884C; bitbake image-full -c populate_sdk &#x5931;&#x8D25;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528;&#x5B98;&#x65B9;&#x505A;&#x597D;&#x7684;&#x5DE5;&#x5177;&#x94FE;&#xFF0C;&#x4E0B;&#x8F7D;&#x5730;&#x5740;&#x5982;&#x4E0B;&#xFF0C;<a href="https://downloadcenter.intel.com/zh-cn/download/24619/Intel-Galileo-Cross-Compile-Toolchain" target="_blank" rel="noopener">ToolChain</a>, &#x4F46;&#x8FD9;&#x9700;&#x8981;&#x914D;&#x7F6E;&#x4E00;&#x4E0B;&#x624D;&#x80FD;&#x4F7F;&#x7528;&#x3002;&#x5177;&#x4F53;&#x914D;&#x7F6E;&#x8FC7;&#x7A0B;&#x5982;&#x4E0B;&#xFF1A;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">[container] <span class="built_in">cd</span> /workdir/</span><br><span class="line">[container] tar -xzvf  galileo-toolchain-20150120-linux64.tar.bz2</span><br><span class="line">[container] <span class="built_in">cd</span> ./i586</span><br><span class="line">[container] ./install_script.sh</span><br><span class="line">[container] <span class="built_in">source</span> environment-setup-i586-poky-linux-uclibc</span><br><span class="line">[container] <span class="built_in">echo</span> <span class="variable">$CC</span> <span class="comment"># &#x7EC8;&#x7AEF;&#x663E;&#x793A;&#x5DE5;&#x5177;&#x7F16;&#x8BD1;&#x5668;&#x4FE1;&#x606F;&#x5219;&#x5B89;&#x88C5;&#x6210;&#x529F;</span></span><br><span class="line"><span class="comment"># &#x56E0;&#x4E3A;&#x540E;&#x9762;&#x6211;&#x4EEC;&#x8981;&#x7528;&#x5230;OpenCV&#x6240;&#x4EE5;&#x8981;&#x914D;&#x7F6E;OpenCV&#x7F16;&#x8BD1;&#x73AF;&#x5883;</span></span><br><span class="line"><span class="comment"># &#x6211;&#x4EEC;&#x9700;&#x8981;&#x5C06;/workdir/Galileo-Runtime/meta-clanton/yocto_build/tmp/deploy/sysroots/clanton/usr/lib &#x4E2D;&#x7684;&#x6240;&#x6709;OpenCV lib&#x590D;&#x5236;&#x5230; /workdir/i586/sysroots/i586-poky-linux-uclibc/usr/lib/opencv_lib  (opencv_lib&#x662F;&#x6211;&#x4EEC;&#x81EA;&#x5DF1;&#x521B;&#x5EFA;&#x7684;&#x76EE;&#x5F55;&#xFF09;</span></span><br><span class="line"><span class="comment">#&#x6211;&#x4EEC;&#x9700;&#x8981;&#x590D;&#x5236; /workdir/Galileo-Runtime/meta-clanton/yocto_build/tmp/deploy/sysroots/clanton/usr/include &#x4E2D; opencv, opencv2 &#x4E24;&#x4E2A;&#x76EE;&#x5F55; &#x590D;&#x5236;&#x5230; /workdir/i586/sysroots/i586-poky-linux-uclibc/usr/include &#x4E0B;</span></span><br><span class="line"><span class="comment"># &#x6211;&#x4EEC;&#x5728; /workdir/i586/sysroots/i586-poky-linux-uclibc/usr/lib &#x4E0B;&#x5EFA;&#x7ACB;&#x5982;&#x4E0B;&#x76EE;&#x5F55;&#x5E76;&#x4E14;&#x6DFB;&#x52A0;&#x5982;&#x4E0B;&#x6587;&#x4EF6;</span></span><br><span class="line"></span><br><span class="line"> [container] mkdir pkgconfig</span><br><span class="line"> [container] vim opencv.pc</span><br><span class="line"> </span><br><span class="line"> <span class="comment"># Package Information for pkg-config</span></span><br><span class="line"></span><br><span class="line">prefix=/workdir/i586/sysroots/i586-poky-linux-uclibc/usr/</span><br><span class="line">exec_prefix=<span class="variable">${prefix}</span>/lib</span><br><span class="line">libdir=</span><br><span class="line">includedir_old=<span class="variable">${prefix}</span>/include/opencv</span><br><span class="line">includedir_new=<span class="variable">${prefix}</span>/include</span><br><span class="line"></span><br><span class="line">Name: OpenCV</span><br><span class="line">Description: Open Source Computer Vision Library (Galileo)</span><br><span class="line">Version: 2.4.6</span><br><span class="line">Libs:  <span class="variable">${exec_prefix}</span>/opencv_lib/libopencv_calib3d.so <span class="variable">${exec_prefix}</span>/opencv_lib/libopencv_contrib.so <span class="variable">${exec_prefix}</span>/opencv_lib/libopencv_core.so <span class="variable">${exec_prefix}</span>/opencv_lib/libopencv_features2d.so <span class="variable">${exec_prefix}</span>/opencv_lib/libopencv_flann.so  <span class="variable">${exec_prefix}</span>/opencv_lib/libopencv_highgui.so <span class="variable">${exec_prefix}</span>/opencv_lib/libopencv_imgproc.so <span class="variable">${exec_prefix}</span>/opencv_lib/libopencv_gpu.so <span class="variable">${exec_prefix}</span>/opencv_lib/libopencv_legacy.so <span class="variable">${exec_prefix}</span>/opencv_lib/libopencv_ml.so <span class="variable">${exec_prefix}</span>/opencv_lib/libopencv_nonfree.so <span class="variable">${exec_prefix}</span>/opencv_lib/libopencv_objdetect.so <span class="variable">${exec_prefix}</span>/opencv_lib/libopencv_photo.so <span class="variable">${exec_prefix}</span>/opencv_lib/libopencv_stitching.so <span class="variable">${exec_prefix}</span>/opencv_lib/libopencv_superres.so <span class="variable">${exec_prefix}</span>/opencv_lib/libopencv_ts.a <span class="variable">${exec_prefix}</span>/opencv_lib/libopencv_video.so <span class="variable">${exec_prefix}</span>/opencv_lib/libopencv_videostab.so</span><br><span class="line">Cflags: -I<span class="variable">${includedir_old}</span> -I<span class="variable">${includedir_new}</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="&#x7F16;&#x5199;OpenCV&#x7A0B;&#x5E8F;"><a href="#&#x7F16;&#x5199;OpenCV&#x7A0B;&#x5E8F;" class="headerlink" title="&#x7F16;&#x5199;OpenCV&#x7A0B;&#x5E8F;"></a>&#x7F16;&#x5199;OpenCV&#x7A0B;&#x5E8F;</h2><p>&#x6709;&#x4E86;&#x6211;&#x4EEC;&#x524D;&#x9762;&#x7684;&#x51C6;&#x5907;&#x5DE5;&#x4F5C;&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x6765;&#x7F16;&#x5199;&#x4E00;&#x4E2A;&#x7B80;&#x5355;OpenCV&#x6D4B;&#x8BD5;&#x7A0B;&#x5E8F;<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;opencv2/opencv.hpp&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;opencv2/core/core.hpp&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;opencv2/imgproc/imgproc.hpp&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> cv;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>{</span><br><span class="line">    Mat Frame; <span class="comment">//define a buffer frame</span></span><br><span class="line">    <span class="function">VideoCapture <span class="title">cap</span><span class="params">(<span class="number">0</span>)</span></span>; <span class="comment">// Open default camera</span></span><br><span class="line">    <span class="keyword">if</span>(!cap.isOpened()){</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Open Camera Error!&quot;</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    }</span><br><span class="line">    cap.read(Frame);</span><br><span class="line">    imwrite(<span class="string">&quot;Frame.jpeg&quot;</span>,Frame);</span><br><span class="line">    cap.release();</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Process Successfull&quot;</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>&#x7136;&#x540E;&#x6211;&#x4EEC;&#x7528;&#x5982;&#x4E0B;&#x6307;&#x4EE4;&#x7F16;&#x8BD1;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[container] <span class="built_in">cd</span> /workdir/</span><br><span class="line">[container] mkdir code</span><br><span class="line">[container] <span class="built_in">cd</span> code</span><br><span class="line">[container] vim test_cam.cpp</span><br><span class="line"><span class="comment"># &#x7F16;&#x8F91;&#x4E0A;&#x9762;&#x8D34;&#x51FA;&#x7684;&#x4EE3;&#x7801;</span></span><br><span class="line">[container] <span class="built_in">source</span> ../i586/<span class="built_in">source</span> environment-setup-i586-poky-linux-uclibc</span><br><span class="line">[container] <span class="variable">$CXX</span> test_cam.cpp -o test_cam `pkg-config --libs --cflags opencv`</span><br><span class="line"><span class="comment"># &#x7136;&#x540E;&#x5728;code&#x76EE;&#x5F55;&#x4E0B;&#x4EA7;&#x751F; test_cam&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="&#x4E0A;&#x4F20;&#x7A0B;&#x5E8F;&#x5E76;&#x6D4B;&#x8BD5;"><a href="#&#x4E0A;&#x4F20;&#x7A0B;&#x5E8F;&#x5E76;&#x6D4B;&#x8BD5;" class="headerlink" title="&#x4E0A;&#x4F20;&#x7A0B;&#x5E8F;&#x5E76;&#x6D4B;&#x8BD5;"></a>&#x4E0A;&#x4F20;&#x7A0B;&#x5E8F;&#x5E76;&#x6D4B;&#x8BD5;</h2><p>&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x5C06;&#x7F16;&#x8BD1;&#x7684; test_cam &#x4E0A;&#x4F20;GalileoGen2&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;&#xFF0C;&#x5177;&#x4F53;&#x64CD;&#x4F5C;&#x8FC7;&#x7A0B;&#x5982;&#x4E0B;&#xFF1A;<br>1&#xFF09;&#x9996;&#x5148;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x6309;&#x7167;&#x5982;&#x4E0B;&#x8FDE;&#x63A5;&#x6211;&#x4EEC;&#x7684;&#x8BBE;&#x5907;&#xFF1A;</p>
+<center><br>    <img src="/2019/06/27/T-Control-Camera-With-Galileo-Gen2/1.jpg" width="70%" height="70%"><br></center><br>2&#xFF09;&#x4F7F;&#x7528;Putty&#x4E32;&#x53E3;&#x8FDE;&#x63A5;&#x6211;&#x4EEC;&#x7684;GalileoGen2&#xFF0C;&#x91CD;&#x542F;Galileo Gen2 &#x7136;&#x540E;&#x6211;&#x4EEC;&#x901A;&#x8FC7;Putty&#x53EF;&#x4EE5;&#x770B;&#x89C1;&#x4EE5;&#x4E0B;&#x754C;&#x9762;:<br><center><br>    <img src="/2019/06/27/T-Control-Camera-With-Galileo-Gen2/2.png" width="70%" height="70%"><br></center><br>3&#xFF09;&#x6211;&#x4EEC;&#x67E5;&#x770B;Galileo Gen 2 IP, &#x7136;&#x540E;&#x914D;&#x7F6E;&#x6211;&#x4EEC;&#x7684;&#x5F00;&#x53D1;&#x7535;&#x8111;&#x4E3A;&#x9759;&#x6001;IP&#x4E14;&#x4E0E;Galileo&#x5728;&#x540C;&#x4E00;&#x7F51;&#x6BB5;&#x3002;<br><center><br>    <img src="/2019/06/27/T-Control-Camera-With-Galileo-Gen2/3.png" width="70%" height="70%"><br></center><br>4&#xFF09;&#x6211;&#x4EEC;&#x5C06;&#x4E3B;&#x673A;&#x7684;test_cam&#x7A0B;&#x5E8F;&#x4E0A;&#x4F20; GalileoGen2&#xFF1A;<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[host] <span class="built_in">cd</span> /your/workspace/</span><br><span class="line">[host] <span class="built_in">cd</span> code</span><br><span class="line">[host] scp ./test_cam root@GalileoGen2_IP:./</span><br></pre></td></tr></table></figure><br><br><center><br>    <img src="/2019/06/27/T-Control-Camera-With-Galileo-Gen2/4.png" width="70%" height="70%"><br></center><br>5) &#x5728;Galileo Gen 2&#x4E0A;&#x6302;&#x5728;&#x9A71;&#x52A8;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[Galileo Gen2] modprobe uvcvideo</span><br><span class="line">[Galileo Gen2] ls /dev/video* <span class="comment">#&#x67E5;&#x770B;&#x8BBE;&#x5907;&#x662F;&#x5426;&#x6302;&#x8F7D;&#x6210;&#x529F;</span></span><br></pre></td></tr></table></figure><br><br><center><br>    <img src="/2019/06/27/T-Control-Camera-With-Galileo-Gen2/5.png" width="70%" height="70%"><br></center><br>6&#xFF09;&#x6267;&#x884C;&#x7A0B;&#x5E8F;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[Galileo Gen2] ./test_cam</span><br><span class="line"><span class="comment"># &#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x751F;&#x6210;&#x4E86;&#x4E00;&#x4E2A;Frame.jpeg&#x56FE;&#x7247;</span></span><br></pre></td></tr></table></figure><br><br><center><br>    <img src="/2019/06/27/T-Control-Camera-With-Galileo-Gen2/6.png" width="70%" height="70%"><br></center>
+
+<p>7) &#x6211;&#x4EEC;&#x628A;&#x62CD;&#x7684;&#x7167;&#x7247;&#x4E0A;&#x4F20;PC<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[host] scp  root@GalileoGen2_IP:./Frame.jpeg ./</span><br></pre></td></tr></table></figure></p>
+<center><br>    <img src="/2019/06/27/T-Control-Camera-With-Galileo-Gen2/7.png" width="70%" height="70%"><br></center><br>8) &#x67E5;&#x770B;&#x6211;&#x4EEC;&#x521A;&#x624D;&#x62CD;&#x7684;&#x7167;&#x7247;<br><center><br>    <img src="/2019/06/27/T-Control-Camera-With-Galileo-Gen2/8.jpg" width="70%" height="70%"><br></center>
+
+<h2 id="&#x603B;&#x7ED3;"><a href="#&#x603B;&#x7ED3;" class="headerlink" title="&#x603B;&#x7ED3;"></a>&#x603B;&#x7ED3;</h2><p>&#x5230;&#x6B64;&#x6211;&#x4EEC;&#x5C31;&#x5B8C;&#x6210;&#x4E86;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;Galileo Gen2 &#x62CD;&#x7167;&#x7684;&#x5C0F;DEMO&#x3002;<br>&#x6B22;&#x8FCE;&#x6307;&#x51FA;&#x9519;&#x8BEF;&#x548C;&#x8BA8;&#x8BBA;&#xFF0C;&#x8054;&#x7CFB;&#x65B9;&#x5F0F;: <a href="mailto:fengjinyuan@outlook.com" target="_blank" rel="noopener">fengjinyuan@outlook.com</a></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://fengjinyuan.github.io/2019/06/27/T-Control-Camera-With-Galileo-Gen2/" title="[T] Control Camera With Galileo Gen2" target="_blank" rel="external">http://fengjinyuan.github.io/2019/06/27/T-Control-Camera-With-Galileo-Gen2/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/fengjinyuan" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt>
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/fengjinyuan" target="_blank"><span class="text-dark">CVNovice</span><small class="ml-1x">Master of Software Engineering</small></a></h3>
+        <div>Like Embedded System, Like Computer Vision</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      </div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2019/06/17/T-Build-Linux-Image-towards-Intel-Galileo/" title="[T]Build Linux Image towards Intel Galileo"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.jpg" alt="Scan Qrcode" title="Scan">
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="Scan Qrcode" title="Scan">
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class>
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/fengjinyuan" target="_blank" title="Github" data-toggle="tooltip" data-placement="top"><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle="tooltip" data-placement="top"><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+    <script defer>
+    var disqus_config = function () {
+        
+            this.page.url = 'http://fengjinyuan.github.io/2019/06/27/T-Control-Camera-With-Galileo-Gen2/';
+        
+        this.page.identifier = 'T-Control-Camera-With-Galileo-Gen2';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'null' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>
